@@ -38,7 +38,7 @@ int DegitFrequency(strNumber_Digit Red)
 
 int main()
 {
-	// For code 1 :
+	
 	strNumber_Digit Red;
 	cout << "Digit " << Red.Digit << " Frequency is " << DegitFrequency(RedNumber_And_Digit(Red)) << " Time" << endl;
 
