@@ -10,6 +10,7 @@ int RedPsitiveNumber(string message){
 	{
 		cout << message;
 		cin >> Number;
+		
 	} while (Number < 0);
 
 	return Number;
