@@ -1,3 +1,20 @@
+/*
+Problem11 |===============================================
+
+Write a program to read a number and check if is Palindrome?
+
+Input : 
+1234
+12321
+
+Output : 
+No, it is Not a Palindrome number.
+Yes, it is a Palindrome number.
+==========================================================
+*/
+
+// This is my code solution :
+
 #include <iostream>
 using namespace std;
 

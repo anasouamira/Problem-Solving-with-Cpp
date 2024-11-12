@@ -1,3 +1,22 @@
+/*
+Problem10 |===============================================
+
+Write a program to read a number and print it in order from 
+left to right.
+
+Input : 
+1234
+
+Output : 
+1
+2
+3
+4
+==========================================================
+*/
+
+// This is my code solution :
+
 #include <iostream>
 #include <string>
 using namespace std;

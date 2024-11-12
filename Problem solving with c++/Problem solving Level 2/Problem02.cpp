@@ -1,4 +1,22 @@
+/*
+Problem02 |===============================================
 
+Write a program to print all prime number From 1 to N 
+order. 
+
+Input : 
+10
+
+Output : 
+1
+2
+3
+5
+7
+==========================================================
+*/
+
+// This is my code solution :
 
 #include <iostream>
 using namespace std;

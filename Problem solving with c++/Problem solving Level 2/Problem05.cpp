@@ -1,4 +1,23 @@
 
+/*
+Problem05 |===============================================
+
+Write a program to read a number and print it in a reversed
+order. 
+
+Input : 
+1234
+
+Output : 
+4
+3
+2
+1
+==========================================================
+*/
+
+// This is my code solution :
+
 #include <iostream>
 using namespace std;
 

@@ -1,3 +1,23 @@
+/*
+Problem15 |===============================================
+
+Write a program to read a number and print letter pattern 
+as follows?
+
+Input : 
+5
+
+Output : 
+A
+BB
+CCC
+DDDD
+EEEEE
+==========================================================
+*/
+
+// This is my code solution :
+
 #include <iostream>
 using namespace std;
 

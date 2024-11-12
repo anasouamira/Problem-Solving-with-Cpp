@@ -1,3 +1,19 @@
+/*
+Problem03 |===============================================
+
+Write a program to check if the number is perfect or not?
+
+Input : 
+28
+12
+
+Output : 
+28 is perfect. 
+496 perfect.
+==========================================================
+*/
+
+// This is my code solution :
 
 #include <iostream>
 using namespace std; 

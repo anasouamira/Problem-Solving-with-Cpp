@@ -1,3 +1,20 @@
+/*
+Problem04 |===============================================
+
+Write a program to print all perfect number From 1 to N 
+order. 
+
+Input : 
+500
+
+Output : 
+6
+28
+496
+==========================================================
+*/
+
+// This is my code solution :
 
 #include <iostream>
 using namespace std;
