@@ -21,7 +21,7 @@ Output :
 #include <iostream>
 using namespace std;
 
-// This is my code : 
+
 int RedNumberPositive(string message)
 {
 	int Nub;
@@ -49,7 +49,7 @@ void Check_PrimeNub_1_To_N(int Nub){
 	}
 }
 
-// This is a Professional :
+// This is a Professional code :
 
 enum enPrimNotPrime
 {Prime = 1,NotPrime = 2};
