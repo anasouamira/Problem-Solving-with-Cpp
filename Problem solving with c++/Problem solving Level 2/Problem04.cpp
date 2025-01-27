@@ -14,50 +14,64 @@ Output :
 ==========================================================
 */
 
-// This is my code solution :
+
 
 #include <iostream>
 using namespace std;
 
-enum enmPrefectNotPerfect { Prefect = 1, NotPrefect = 2};
+// Enumeration to represent whether a number is Perfect or Not Perfect
+enum enmPrefectNotPerfect
+{
+    Prefect = 1,
+    NotPrefect = 2
+};
 
-int RedPsitiveNumber(string message) {
-
-	int Number;
-	do
-	{
-		cout << message;
-		cin >> Number;
-	} while (Number < 0);
-
-	return Number;
+// Function to read a positive number from the user
+int RedPsitiveNumber(string message)
+{
+    int Number;
+    do
+    {
+        cout << message; // Prompt the user with the given message
+        cin >> Number;   // Read the input
+    } while (Number < 0); // Ensure the number is positive
+    return Number;
 }
 
-enmPrefectNotPerfect CheckPrefectNumber(int Number){
+// Function to check if a given number is a perfect number
+enmPrefectNotPerfect CheckPrefectNumber(int Number)
+{
+    int M = round(Number / 2); // Only check divisors up to half the number
+    int SumNubPrime = 0;       // Variable to store the sum of divisors
 
-	int M = round(Number / 2);
-	int SumNubPrime = 0;
-	for (int Divisor = 1; Divisor <= M; Divisor++)
-	{
-		if(Number % Divisor == 0)
-			SumNubPrime += Divisor;
-	}
-	if (SumNubPrime == Number) return enmPrefectNotPerfect::Prefect;
-	return enmPrefectNotPerfect::NotPrefect;
-	
+    // Iterate through potential divisors
+    for (int Divisor = 1; Divisor <= M; Divisor++)
+    {
+        if (Number % Divisor == 0) // Check if Divisor divides Number
+            SumNubPrime += Divisor; // Add Divisor to the sum
+    }
+
+    // Check if the sum of divisors equals the original number
+    if (SumNubPrime == Number)
+        return enmPrefectNotPerfect::Prefect; // It is a perfect number
+
+    return enmPrefectNotPerfect::NotPrefect; // It is not a perfect number
 }
 
-void PrintPrefectNumber(int Number) {
-
-	for (int counter = 1;counter <= Number;counter++)
-	{
-		if (CheckPrefectNumber(counter) == enmPrefectNotPerfect::Prefect)
-			cout << counter << endl;
-	}
-
+// Function to print all perfect numbers from 1 to the given number
+void PrintPrefectNumber(int Number)
+{
+    // Iterate through numbers from 1 to the given number
+    for (int counter = 1; counter <= Number; counter++)
+    {
+        // Check if the current number is a perfect number
+        if (CheckPrefectNumber(counter) == enmPrefectNotPerfect::Prefect)
+            cout << counter << endl; // Print the perfect number
+    }
 }
 
 int main()
 {
-	PrintPrefectNumber(RedPsitiveNumber("Enter Number positive to check how meny numbers perfict from 1 to N : "));
+    // Prompt the user for a number and print all perfect numbers from 1 to that number
+    PrintPrefectNumber(RedPsitiveNumber("Enter a positive number to find all perfect numbers from 1 to N: "));
 }

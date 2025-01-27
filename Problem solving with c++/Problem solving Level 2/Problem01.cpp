@@ -24,77 +24,61 @@ ________________________________________________________________________________
 ==============================================================
 */
 
-// This is my code solution :
-
 #include <iostream>
 using namespace std;
-void Print_1_to_10() {
-    int i = 1;
-    while (i != 20) {
-        if (i <= 10) {
-            cout << "\t" << i;
-        }
-        else if (i == 11) { cout << "\n__"; }
-        else { cout << "__________"; }
-        i++;
-    } 
-    cout << endl;
+
+// Prints the header row for the multiplication table
+void PrintTableHeader()
+{
+    // Header title
+    cout << "\n\n\t\t\t Multiplication Table From 1 to 10\n\n";
+    cout << "\t";
+
+    // Print column numbers (1 to 10)
+    for (int i = 1; i <= 10; i++)
+    {
+        cout << i << "\t";
+    }
+
+    // Print separator line
+    cout << "\n___________________________________________________________________________________\n";
 }
-void Multi_Table_1_To_10() {
 
-    int Multi = 1;
-    for (int i = 1; i <= 10; i++) {
-        
-        if (i < 10){ cout << " " << i << "    |  ";}
-        else{ cout << " " << i << "   |  "; }
+// Determines the column separator based on the number of digits in `i`
+string ColumSperator(int i)
+{
+    if (i < 10) // For single-digit numbers, add extra spacing
+        return "   |";
+    else        // For double-digit numbers, use normal spacing
+        return "  |";
+}
 
-        for (int j = 1; j <= 10; j++) {
-            Multi = i * j;
-            cout << Multi << "\t";
+// Prints the full multiplication table (1 to 10)
+void PrintMultiplicationTable()
+{
+    // Print the header row
+    PrintTableHeader();
+
+    // Generate and print each row of the multiplication table
+    for (int i = 1; i <= 10; i++)
+    {
+        // Print the row number and separator
+        cout << " " << i << ColumSperator(i) << "\t";
+
+        // Print the products for this row
+        for (int j = 1; j <= 10; j++)
+        {
+            cout << i * j << "\t"; // Calculate and print the product
         }
-        cout << endl;
+        cout << endl; // End the row
     }
 }
 
-// This is Professional code :
-
-void PrintTableHeader() 
-{ 
-    cout << "\n\n\t\t\t Multipliaction Table From 1 to 10\n\n"; 
-    cout << "\t"; 
-for (int i = 1; i <= 10; i++) 
-    { 
-        cout << i << "\t"; 
-    } 
-    cout << "\n___________________________________________________________________________________\n"; 
-} 
-string ColumSperator(int i) 
-{ 
-    if (i < 10) 
-        return "   |"; 
-    else 
-    return "  |"; 
-} 
-void PrintMultiplicationTable() 
-{ 
-    PrintTableHeader(); 
-for (int i = 1; i <= 10; i++) 
-    { 
-        cout << " " << i << ColumSperator(i) << "\t"; 
-for (int j = 1; j <= 10; j++) 
-        { 
-            cout << i * j << "\t"; 
-        } 
-        cout << endl; 
-    } 
-} 
-
 int main()
 {
-    // code 1 :
-    Print_1_to_10();
-    Multi_Table_1_To_10();
-    // code 2 :
-    PrintMultiplicationTable(); 
-
+    // Call the function to print the multiplication table
+    PrintMultiplicationTable();
 }
+
+
+
