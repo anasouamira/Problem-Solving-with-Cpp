@@ -27,58 +27,63 @@ ________________________________________________________________________________
 #include <iostream>
 using namespace std;
 
-// Prints the header row for the multiplication table
+/**
+ * Function to print the header of the multiplication table.
+ * It includes column labels from 1 to 10 and a separator line.
+ */
 void PrintTableHeader()
 {
-    // Header title
     cout << "\n\n\t\t\t Multiplication Table From 1 to 10\n\n";
     cout << "\t";
-
-    // Print column numbers (1 to 10)
     for (int i = 1; i <= 10; i++)
     {
         cout << i << "\t";
     }
-
-    // Print separator line
     cout << "\n___________________________________________________________________________________\n";
 }
 
-// Determines the column separator based on the number of digits in `i`
-string ColumSperator(int i)
+/**
+ * Function to return a column separator based on the row number.
+ * It adjusts spacing for better table alignment.
+ * 
+ * @param i - The current row number.
+ * @return A string representing the column separator.
+ */
+string ColumnSeparator(int i)
 {
-    if (i < 10) // For single-digit numbers, add extra spacing
+    if (i < 10)
         return "   |";
-    else        // For double-digit numbers, use normal spacing
+    else
         return "  |";
 }
 
-// Prints the full multiplication table (1 to 10)
+/**
+ * Function to print the full multiplication table from 1 to 10.
+ * It calls PrintTableHeader() first, then prints each row of the table.
+ */
 void PrintMultiplicationTable()
 {
-    // Print the header row
     PrintTableHeader();
-
-    // Generate and print each row of the multiplication table
     for (int i = 1; i <= 10; i++)
     {
-        // Print the row number and separator
-        cout << " " << i << ColumSperator(i) << "\t";
-
-        // Print the products for this row
+        cout << " " << i << ColumnSeparator(i) << "\t";
         for (int j = 1; j <= 10; j++)
         {
-            cout << i * j << "\t"; // Calculate and print the product
+            cout << i * j << "\t";
         }
-        cout << endl; // End the row
+        cout << endl;
     }
 }
 
+/**
+ * Main function that serves as the entry point of the program.
+ * Calls PrintMultiplicationTable() to display the multiplication table.
+ */
 int main()
 {
-    // Call the function to print the multiplication table
     PrintMultiplicationTable();
 }
+
 
 
 

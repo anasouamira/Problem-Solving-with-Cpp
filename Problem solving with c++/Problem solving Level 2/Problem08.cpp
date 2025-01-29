@@ -19,47 +19,59 @@ Digit 2 Frequency is 5 Time(s).
 
 #include <iostream>
 using namespace std;
-struct strNumber_Digit
-{
-	int Number, Digit;
+
+/**
+ * Structure to hold a number and a specific digit to be searched within the number.
+ */
+struct strNumber_Digit {
+    int Number, Digit;
 };
-strNumber_Digit RedNumber_And_Digit(strNumber_Digit &Red)
-{
 
-	do
-	{
-		cout << "Enter Number positive : ";
-		cin >> Red.Number;
-		cout << "Enter Digit : ";
-		cin >> Red.Digit;
+/**
+ * Function to read a positive number and a digit from the user.
+ * Ensures that both the number and digit are non-negative before returning the struct.
+ *
+ * @param Red - Reference to a struct containing the number and digit.
+ * @return The updated struct with user-input values.
+ */
+strNumber_Digit ReadNumber_And_Digit(strNumber_Digit &Red) {
+    do {
+        cout << "Enter a positive number: ";
+        cin >> Red.Number;
+        cout << "Enter a digit: ";
+        cin >> Red.Digit;
+    } while (Red.Number < 0 || Red.Digit < 0); // Ensure inputs are non-negative
 
-	} while (Red.Number < 0 || Red.Digit < 0);
-
-	return Red;
-}
-int DegitFrequency(strNumber_Digit Red)
-{
-
-	int Remainder;
-	int SumDigit = 0;
-	do
-	{
-		Remainder = Red.Number % 10;
-		Red.Number = Red.Number / 10;
-		if (Remainder == Red.Digit)
-			SumDigit++;
-
-	} while (Red.Number > 0);
-
-	return SumDigit;
+    return Red;
 }
 
-int main()
-{
-	
-	strNumber_Digit Red;
-	cout << "Digit " << Red.Digit << " Frequency is " << DegitFrequency(RedNumber_And_Digit(Red)) << " Time" << endl;
+/**
+ * Function to count the occurrences of a specific digit within a given number.
+ *
+ * @param Red - Struct containing the number and the digit to be counted.
+ * @return The frequency of the digit within the number.
+ */
+int DigitFrequency(strNumber_Digit Red) {
+    int Remainder;
+    int SumDigit = 0;
+    do {
+        Remainder = Red.Number % 10; // Extract the last digit
+        Red.Number = Red.Number / 10; // Remove the last digit
+        if (Remainder == Red.Digit)
+            SumDigit++; // Increment count if digit matches
+    } while (Red.Number > 0);
 
-
-	return 0;
+    return SumDigit;
 }
+
+/**
+ * Main function - Entry point of the program.
+ * It reads a number and a digit, then calculates how many times the digit appears in the number.
+ */
+int main() {
+    strNumber_Digit Red;
+    cout << "Digit " << Red.Digit << " Frequency is " << DigitFrequency(ReadNumber_And_Digit(Red)) << " times" << endl;
+
+    return 0;
+}
+

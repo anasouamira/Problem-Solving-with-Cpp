@@ -16,35 +16,38 @@ Output :
 ==========================================================
 */
 
-// This is my code solution :
 
 #include <iostream>
 using namespace std;
 
+// Function to read a positive short number from the user
 short RedNumberPsitive(string message)
 {
     short Number;
     do
     {
-        cout << message;
-        cin >> Number;
-
-    } while (Number < 0);
-
+        cout << message;  // Display the message prompt
+        cin >> Number;    // Read user input
+    } while (Number < 0);  // Ensure the input is positive
     return Number;
 }
+
+// Function to print an inverted pattern of numbers
 void PrintInvertedPattern(short Number)
 {
-
-    for (short i = Number; i > 0; i--)
+    // Loop to print each row of the inverted pattern
+    for (short i = Number; i > 0; i--)  // Start from 'Number' and decrement
     {
+        // Print the number 'i' exactly 'i' times
         for (short j = 1; j <= i; j++)
             cout << i;
-        cout << endl;
+        cout << endl;  // Move to the next line after printing each row
     }
 }
 
 int main()
 {
-    PrintInvertedPattern(RedNumberPsitive("Enter Number to print Inverted Pattern : "));
+    // Read a positive number and print its inverted pattern
+    PrintInvertedPattern(RedNumberPsitive("Enter Number to print Inverted Pattern: "));
 }
+

@@ -25,103 +25,55 @@ Found After 6 Trial(s)
 #include <iostream>
 using namespace std;
 
-string Red_3_CapitalLetterPassword(string message)
-{
-
-    string Letter_Password;
-
-    cout << message;
-    cin >> Letter_Password;
-
-    return Letter_Password;
-}
-
-void Guess_A_3_LetterPassword(string Letter_Password)
-{
-
-    string word = "";
-    int Trial = 1;
-    for (int i = 65; i <= 90; i++)
-    {
-
-        for (int j = 65; j <= 90; j++)
-        {
-
-            for (int k = 65; k <= 90; k++)
-            {
-
-                word = word + char(i);
-                word = word + char(j);
-                word = word + char(k);
-
-                cout << " Trail[" << Trial << "] : " << word << endl;
-
-                if (Letter_Password == word)
-                {
-
-                    cout << endl;
-                    cout << "Password is : " << Letter_Password << endl;
-                    cout << "Found After " << Trial << " Trial(s)" << endl;
-
-                    i = 91;
-                    j = 91;
-                    break;
-                }
-
-                Trial++;
-                word = "";
-            }
-        }
-    }
-}
-
-// This is Professional code solution :
-
+// Function to read a 3-letter password from the user
 string ReadPassword()
 {
     string Password;
-    cout << "Please enter a 3-Letter Password (all capital)?\n";
-    cin >> Password;
-    return Password;
+    cout << "Please enter a 3-Letter Password (all capital)?\n";  // Prompt user to enter password
+    cin >> Password;  // Read password input
+    return Password;  // Return the password
 }
+
+// Function to guess the password by trying all possible 3-letter combinations
 bool GuessPassword(string OriginalPassword)
 {
-    string word = "";
-    int Counter = 0;
-    cout << "\n";
-    for (int i = 65; i <= 90; i++)
-    {
-        for (int j = 65; j <= 90; j++)
-        {
-            for (int k = 65; k <= 90; k++)
-            {
-                word = word + char(i);
-                word = word + char(j);
-                word = word + char(k);
-                Counter++;
+    string word = "";  // Initialize an empty string to store the current guess
+    int Counter = 0;  // Initialize the trial counter
 
-                cout << "Trial [" << Counter << "] : ";
-                cout << word << endl;
+    cout << "\n";
+    // Loop through all possible combinations of 3 uppercase letters (A-Z)
+    for (int i = 65; i <= 90; i++)  // First character (A-Z)
+    {
+        for (int j = 65; j <= 90; j++)  // Second character (A-Z)
+        {
+            for (int k = 65; k <= 90; k++)  // Third character (A-Z)
+            {
+                word = word + char(i);  // Append the first character
+                word = word + char(j);  // Append the second character
+                word = word + char(k);  // Append the third character
+                Counter++;  // Increment the trial counter
+
+                cout << "Trial [" << Counter << "] : ";  // Display the current trial number
+                cout << word << endl;  // Display the current word being guessed
+
+                // Check if the current guess matches the original password
                 if (word == OriginalPassword)
                 {
-                    cout << "\nPassword is " << word << "\n";
+                    cout << "\nPassword is " << word << "\n";  // Display the correct password
                     cout << "Found after ";
-                    cout << Counter << " Trial(s)\n";
-                    return true;
+                    cout << Counter << " Trial(s)\n";  // Display the number of trials taken
+                    return true;  // Return true if the password is found
                 }
-                word = "";
+
+                word = "";  // Reset the word for the next trial
             }
         }
     }
-    return false;
+    return false;  // Return false if the password is not found after all trials
 }
 
 int main()
 {
-    // code 1 :
-    Guess_A_3_LetterPassword(Red_3_CapitalLetterPassword(" Enter 3 capital letter password : "));
-
-    // code 2 :
-    GuessPassword(ReadPassword());
+    GuessPassword(ReadPassword());  // Read the password and try to guess it
     return 0;
 }

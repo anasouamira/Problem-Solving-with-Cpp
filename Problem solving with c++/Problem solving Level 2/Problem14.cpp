@@ -16,37 +16,42 @@ A
 ==========================================================
 */
 
-// This is my code solution :
 
 #include <iostream>
 using namespace std;
 
+// Function to read a positive short number from the user
 short RedNumberPsitive(string message){
-	short Number;
-	do
-	{
-		cout << message;
-		cin >> Number;
-
-	} while (Number < 0);
-
-	return Number;
+    short Number;
+    do
+    {
+        cout << message;  // Display the message prompt
+        cin >> Number;    // Read user input
+    } while (Number < 0);  // Ensure the input is positive
+    return Number;
 }
+
+// Function to print an inverted pattern of letters
 void PrintInvertedPattern(short Number) {
+    // Calculate the starting letter for the pattern (from 'A' to the letter corresponding to the Number)
+    int inverted_Letter = 65 + (Number - 1);  // ASCII value of 'A' is 65
 
-	int inverted_Letter = 65 + (Number - 1);
-
-	for (int i = inverted_Letter; i  >= 65; i--) {
-
-		for (int j = 1; j <= Number; j++) cout << char(i);
-		Number--;
-		cout << endl;
-	}
+    // Loop through the pattern, starting from the letter corresponding to the Number and going down
+    for (int i = inverted_Letter; i >= 65; i--) {
+        
+        // Print the current letter 'i' for 'Number' times
+        for (int j = 1; j <= Number; j++) 
+            cout << char(i);
+        
+        Number--;  // Decrease the count for the next row
+        cout << endl;  // Move to the next line after printing each row
+    }
 }
 
 int main()
 {
-	PrintInvertedPattern(RedNumberPsitive("Enter Number to print Inverted Pattern : "));
-
+    // Read a positive number and print the inverted pattern of letters
+    PrintInvertedPattern(RedNumberPsitive("Enter Number to print Inverted Pattern: "));
 }
+
 
