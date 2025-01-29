@@ -1,15 +1,17 @@
 /*
 Problem 31 |=================================================
-Write a program to fill array with max size 100 with random
-numbers from 1 to 100, then print Max 
+Write a program to fill array with ordered numbers from 1 to N,
+then print it, after that shuffle this array and print it after shuffle.
 
 Input:
 10
 
 Output:
 
-Array Elements: 65 91 54 42 75 32 53 57 57 30
-Max Number is : 91
-=============================================================
+Array elements before shuffle:
+1 2 3 4 5 6 7 8 9 10 
 
+Array elements after shuffle:
+2 4 6 3 10 1 7 8 5 9
+=============================================================
 */
