@@ -1,117 +1,67 @@
 /*
-Problem20 |===============================================
+Problem21 |===============================================
 
-Write a program to print random Small letter, Capital Letter
-Special character, and Digit order
+Write a program to read how many keys to generate and print
+them on the screen.
 
-Output :
-i
-G
-$
-7
+Input:
+5
+
+Output:
+
+Key [1]: ETAT-HJUV-PEIP-CFRX
+
+Key [2]: UMCO-YSPQ-PHYK-STIL
+
+Key [3] : QBSR-MZEC-BYNA-DSYK
+
+Key [4]: MISQ-ULYB-ZRAZ-LMAG
+
+Key [5] : NQCR-PPFJ-KZLF-ZHMT 
 ==========================================================
 */
 
-// This is my code solution :=======================================================
-#include <iostream>
-#include <cstdlib>
-#include <string>
-using namespace std;
+#include <iostream> 
+#include <cstdlib> 
+#include <ctime> 
+#include <string> // Include string for string manipulation
+using namespace std; 
 
-int RedHowManyKeys(string message)
-{
-    int Number;
-    do
-    {
-        cout << message;
-        cin >> Number;
+// Function to generate a random number within a specified range
+int RandomNumber(int From, int To) 
+{ 
+    int randNum = rand() % (To - From + 1) + From; // Generate random number in range [From, To]
+    return randNum; 
+} 
 
-    } while (Number <= 0);
-    return Number;
-}
-
-int RandomNumber(int From, int To)
-{
-    // Function to generate a random number
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;
-}
-
-string GetRandomLetter(int Number)
-{
-
-    string SumRandomLetter = "";
-
-    for (int i = 1; i <= Number; i++)
-    {
-        SumRandomLetter = SumRandomLetter + char(RandomNumber(65, 90));
-    }
-    return SumRandomLetter;
-}
-
-void GetRandomKeys(int Number)
-{
-
-    string RandomKey = "";
-    string Dash = "-";
-    for (int i = 1; i <= Number; i++)
-    {
-        for (int j = 1; j <= 4; j++)
-        {
-
-            if (j == 4)
-                Dash = "";
-            RandomKey = RandomKey + GetRandomLetter(4) + Dash;
-        }
-        cout << "Key[" + to_string(i) + "] : " + RandomKey << endl;
-
-        RandomKey = "";
-        Dash = "-";
-    }
-}
-//===================================================================================
-
-// This is a Professional code :=====================================================
-
-enum enCharType
+// Enumeration for character types
+enum enCharType 
 {
     SmallLetter = 1,
     CapitalLetter = 2,
     SpecialCharacter = 3,
     Digit = 4
 };
-int RandomNumber(int From, int To)
-{
-    // Function to generate a random number
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;
-}
+
+// Function to generate a random character based on the specified type
 char GetRandomCharacter(enCharType CharType)
 {
     switch (CharType)
     {
     case enCharType::SmallLetter:
-    {
-        return char(RandomNumber(97, 122));
-        break;
-    }
+        return char(RandomNumber(97, 122)); // Random lowercase letter (ASCII range 97-122)
     case enCharType::CapitalLetter:
-    {
-        return char(RandomNumber(65, 90));
-        break;
-    }
+        return char(RandomNumber(65, 90)); // Random uppercase letter (ASCII range 65-90)
     case enCharType::SpecialCharacter:
-    {
-        return char(RandomNumber(33, 47));
-        break;
-    }
+        return char(RandomNumber(33, 47)); // Random special character (ASCII range 33-47)
     case enCharType::Digit:
-    {
-        return char(RandomNumber(48, 57));
-        break;
-    }
+        return char(RandomNumber(48, 57)); // Random digit (ASCII range 48-57)
+    default:
+        return ' '; // Return space if invalid type
     }
 }
+
+// Function to read a positive number from the user
 int ReadPositiveNumber(string Message)
 {
     int Number = 0;
@@ -120,49 +70,47 @@ int ReadPositiveNumber(string Message)
         cout << Message << endl;
         cin >> Number;
     }
-
-    while (Number <= 0);
+    while (Number <= 0); // Ensure input is positive
     return Number;
 }
+
+// Function to generate a random word of a specified length
 string GenerateWord(enCharType CharType, short Length)
 {
-    string Word;
-    for (int i = 1; i <= Length; i++)
+    string Word = "";
+    for (int i = 0; i < Length; i++)
     {
+        Word += GetRandomCharacter(CharType); // Append random character to word
     }
-    Word = Word + GetRandomCharacter(CharType);
     return Word;
 }
+
+// Function to generate a formatted key consisting of four groups of random characters
 string GenerateKey()
 {
     string Key = "";
-    Key = GenerateWord(enCharType::CapitalLetter, 4) + "-";
-    Key = Key + GenerateWord(enCharType::CapitalLetter, 4) + "-";
-    Key = Key + GenerateWord(enCharType::CapitalLetter, 4) + "-";
-    Key = Key + GenerateWord(enCharType::CapitalLetter, 4);
+    Key += GenerateWord(enCharType::CapitalLetter, 4) + "-"; // First group of 4 capital letters
+    Key += GenerateWord(enCharType::CapitalLetter, 4) + "-"; // Second group
+    Key += GenerateWord(enCharType::CapitalLetter, 4) + "-"; // Third group
+    Key += GenerateWord(enCharType::CapitalLetter, 4);        // Fourth group (without trailing '-'
     return Key;
 }
+
+// Function to generate and display multiple keys based on user input
 void GenerateKeys(short NumberOfKeys)
 {
     for (int i = 1; i <= NumberOfKeys; i++)
     {
-        cout << "Key [" << i << "] : ";
-        cout << GenerateKey() << endl;
+        cout << "Key [" << i << "] : " << GenerateKey() << endl; // Print generated key
     }
 }
-//=====================================================================================
-int main()
-{
 
+int main() {
     // Seeds the random number generator in C++, called only once
-    srand((unsigned)time(NULL));
-
-    // for code 1 : 
-    int HowManyKeys = RedHowManyKeys("Enter How many Keys do you want : ");
-    GetRandomKeys(HowManyKeys);
-
-    // for code 2 : 
-    GenerateKeys(ReadPositiveNumber("Please enter how many keys to generate? \n "));
-
-    return 0;
+    srand((unsigned)time(NULL)); 
+    
+    // Generate multiple keys based on user input
+    GenerateKeys(ReadPositiveNumber("Please enter how many keys to generate? \n"));
+    
+    return 0; 
 }

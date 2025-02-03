@@ -15,140 +15,54 @@ Text Before Decryption : Anas
 ==========================================================
 */
 
-// This is my code solution :
-
 #include <iostream>
 #include <string>
 using namespace std;
 
-string RedText(string message)
-{
-
-    string Text;
-
-    cout << message;
-    cin >> Text;
-
-    return Text;
-}
-
-string EncryptionText(string Text)
-{
-
-    string Text_Encryption = "";
-
-    // for first capital tetter:
-
-    for (int CaptalLetter = 65; CaptalLetter <= 90; CaptalLetter++)
-    {
-
-        if (Text[0] == char(CaptalLetter))
-        {
-            Text_Encryption = Text_Encryption + char(CaptalLetter + 1);
-            break;
-        }
-    }
-
-    // For small letters :
-    for (int i = 1; i <= Text.length(); i++)
-    {
-        for (int smallLettersr = 97; smallLettersr <= 122; smallLettersr++)
-        {
-            if (Text[i] == char(smallLettersr))
-            {
-                Text_Encryption = Text_Encryption + char(smallLettersr + 1);
-            }
-        }
-    }
-
-    return Text_Encryption;
-}
-
-string DecryptionText(string Text)
-{
-
-    string Text_Decryption = "";
-
-    // for first capital tetter:
-
-    for (int CaptalLetter = 65; CaptalLetter <= 90; CaptalLetter++)
-    {
-
-        if (Text[0] == char(CaptalLetter))
-        {
-            Text_Decryption = Text_Decryption + char(CaptalLetter - 1);
-            break;
-        }
-    }
-
-    // For small letters :
-    for (int i = 1; i <= Text.length(); i++)
-    {
-        for (int smallLettersr = 97; smallLettersr <= 122; smallLettersr++)
-        {
-            if (Text[i] == char(smallLettersr))
-            {
-                Text_Decryption = Text_Decryption + char(smallLettersr - 1);
-            }
-        }
-    }
-
-    return Text_Decryption;
-}
-
-// This is professional code solution :
-
+// Function to read text input from the user
 string ReadText()
 {
     string Text;
     cout << "Please enter Text?\n";
-    getline(cin, Text);
+    getline(cin, Text); // Read entire line of text including spaces
     return Text;
 }
+
+// Function to encrypt the given text using a simple shift cipher
 string EncryptText(string Text, short EncryptionKey)
 {
-    for (int i = 0; i <= Text.length(); i++)
+    for (int i = 0; i < Text.length(); i++) // Loop through each character
     {
-        Text[i] = char((int)Text[i] + EncryptionKey);
+        Text[i] = char((int)Text[i] + EncryptionKey); // Shift character by EncryptionKey
     }
     return Text;
 }
+
+// Function to decrypt the text by reversing the shift cipher
 string DecryptText(string Text, short EncryptionKey)
 {
-    for (int i = 0; i <= Text.length(); i++)
+    for (int i = 0; i < Text.length(); i++) // Loop through each character
     {
-        Text[i] = char((int)Text[i] - EncryptionKey);
+        Text[i] = char((int)Text[i] - EncryptionKey); // Reverse shift by EncryptionKey
     }
     return Text;
 }
 
 int main()
 {
-    // code 1 :
-    // Text Before Encryption :
-    string Text = RedText("Enter text to encrypt it : ");
-    cout << "Text Before Encryption : " << Text << endl;
-
-    // Text After Encryption :
-    string Encryption_Text = EncryptionText(Text);
-    cout << "Text After Encryption : " << Encryption_Text << endl;
-
-    // Text Before Decryption :
-    string Decryption_Text = DecryptionText(Encryption_Text);
-    cout << "Text After Decryption : " << Decryption_Text << endl;
-
-    // code 2 :
-    const short EncryptionKey = 2; // this is the key.
+    const short EncryptionKey = 2; // Encryption key value
     string TextAfterEncryption, TextAfterDecryption;
-    string Text = ReadText();
-    TextAfterEncryption = EncryptText(Text, EncryptionKey);
-    TextAfterDecryption = DecryptText(TextAfterEncryption,EncryptionKey);
     
-    cout << "\nText Before Encryption : ";
-    cout << Text << endl;
-    cout << "Text After Encryption  : ";
-    cout << TextAfterEncryption << endl;
-    cout << "Text After Decryption  : ";
-    cout << TextAfterDecryption << endl;
+    string Text = ReadText(); // Read input text from user
+    
+    TextAfterEncryption = EncryptText(Text, EncryptionKey); // Encrypt the input text
+    TextAfterDecryption = DecryptText(TextAfterEncryption, EncryptionKey); // Decrypt the encrypted text
+    
+    // Display results
+    cout << "\nText Before Encryption : " << Text << endl;
+    cout << "Text After Encryption  : " << TextAfterEncryption << endl;
+    cout << "Text After Decryption  : " << TextAfterDecryption << endl;
+    
     return 0;
 }
+
