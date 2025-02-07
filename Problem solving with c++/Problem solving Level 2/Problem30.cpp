@@ -66,7 +66,7 @@ void PrintArray(int arr[100], int arrLength)
 }
 int main()
 {
-    // Seeds the random number generator in C++, called only once
+    // Seeds the random number generator in C++, called only once 
     srand((unsigned)time(NULL));
     int arr[100], arr2[100], arrSum[100];
     int arrLength = ReadPositiveNumber("How many elements ?\n");
