@@ -15,8 +15,6 @@ Output :
 ==========================================================
 */
 
-// This is my code solution :
-
 #include <iostream>
 #include <string>
 using namespace std;

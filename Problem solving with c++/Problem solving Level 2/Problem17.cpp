@@ -15,7 +15,7 @@ Trial[3] : AAC
 Trial[4] : AAD
 
 Password is AAD
-Found After 6 Trial(s)
+Found After 4 Trial(s)
 
 ==========================================================
 */
