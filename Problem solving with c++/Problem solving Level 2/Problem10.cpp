@@ -27,17 +27,17 @@ int ReadPositiveNumber(string Message)
     {
         cout << Message << endl; // Display message prompt
         cin >> Number;           // Read user input
-    } while (Number <= 0);       // Ensure input is positive
+    } while (Number <= 0);       // Ensure input is positive 
     return Number;
 }
 
-// Function to reverse the digits of a given number
+// Function to reverse the digits of a given number 
 int ReverseNumber(int Number)
 {
     int Remainder = 0, Number2 = 0;
     while (Number > 0)
     {
-        Remainder = Number % 10;       // Extract last digit
+        Remainder = Number % 10;       // Extract last digit 
         Number = Number / 10;          // Remove last digit from number
         Number2 = Number2 * 10 + Remainder; // Append digit to reversed number
     }
