@@ -10,8 +10,6 @@ Output :
 ==========================================================
 */
 
-// This is my code solution :
-
 #include <iostream>
 #include <cstdlib> 
 using namespace std; 
