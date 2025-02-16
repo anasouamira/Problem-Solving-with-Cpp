@@ -1,5 +1,5 @@
 /*
-Problem 46 |=================================================
+Problem 45 |=================================================
 Write a program fo fill array with max size 100 with random
 numbers from -100 to 100, then print the count of Negative
 numbers.
