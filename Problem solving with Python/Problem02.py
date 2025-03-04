@@ -16,63 +16,53 @@ Output :
 7
 ==========================================================
 """
-include <iostream>
-include <cmath> // For round function
-using namespace std;
+import math
 
-// Enumeration to represent whether a number is Prime or Not Prime
-enum enPrimNotPrime
-{
-    Prime = 1,
-    NotPrime = 2
-};
+def read_positive_number(message):
+    """
+    Function to read a positive number from the user.
+    Ensures the input is greater than zero.
+    """
+    number = 0
+    while number <= 0:
+        try:
+            number = int(input(message))  # Read and convert input to an integer
+        except ValueError:
+            print("Invalid input. Please enter a positive integer.")
+    return number
 
-// Function to read a positive number from the user
-int ReadPositiveNumber(string Message)
-{
-    int Number = 0;
-    do
-    {
-        cout << Message << endl; // Prompt the user with the given message
-        cin >> Number;           // Read the number from the user
-    } while (Number <= 0);       // Ensure the number is positive
-    return Number;
-}
+def is_prime(number):
+    """
+    Function to check if a number is prime.
+    Returns True if prime, otherwise False.
+    """
+    if number < 2:
+        return False  # 1 is not a prime number
+    
+    m = int(math.sqrt(number))  # Check divisibility up to sqrt(Number)
+    
+    for i in range(2, m + 1):
+        if number % i == 0:
+            return False  # Number is not prime
+    
+    return True  # Number is prime
 
-// Function to check if a number is prime
-enPrimNotPrime CheckPrime(int Number)
-{
-    int M = round(Number / 2); // Only check divisors up to half the number
-    for (int Counter = 2; Counter <= M; Counter++) // Iterate over potential divisors
-    {
-        if (Number % Counter == 0) // If divisible, the number is not prime
-            return enPrimNotPrime::NotPrime;
-    }
-    return enPrimNotPrime::Prime; // If no divisors found, the number is prime
-}
+def print_prime_numbers_from_1_to_n(n):
+    """
+    Function to print all prime numbers from 1 to a given number.
+    """
+    print(f"\nPrime Numbers from 1 to {n} are:")
+    
+    for i in range(1, n + 1):
+        if is_prime(i):
+            print(i, end=" ")  # Print primes in a single line
+    
+    print()  # Move to a new line after printing all primes
 
-// Function to print all prime numbers from 1 to a given number
-void PrintPrimeNumbersFrom1ToN(int Number)
-{
-    cout << "\n";
-    cout << "Prime Numbers from " << 1 << " To " << Number;
-    cout << " are : " << endl;
+# Main entry point
+if __name__ == "__main__":
+    n = read_positive_number("Please enter a positive number: ")
+    print_prime_numbers_from_1_to_n(n)
 
-    // Check each number from 1 to the given number
-    for (int i = 1; i <= Number; i++)
-    {
-        if (CheckPrime(i) == enPrimNotPrime::Prime) // Check if the number is prime
-        {
-            cout << i << endl; // Print the prime number
-        }
-    }
-}
-
-int main()
-{
-    // Read a positive number and print all prime numbers up to that number
-    PrintPrimeNumbersFrom1ToN(ReadPositiveNumber("Please enter a positive number ? "));
-    return 0;
-}
 
 
