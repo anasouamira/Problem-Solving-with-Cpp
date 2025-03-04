@@ -72,6 +72,7 @@ int main()
     int arrLength = ReadPositiveNumber("How many elements ?\n");
     FillArrayWithRandomNumbers(arr, arrLength);
     FillArrayWithRandomNumbers(arr2, arrLength);
+    
     SumOf2Arrays(arr, arr2, arrSum, arrLength);
     cout << "\nArray 1 elements:\n";
     PrintArray(arr, arrLength);
