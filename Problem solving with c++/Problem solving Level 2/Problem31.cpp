@@ -36,7 +36,7 @@ void Swap(int &A, int &B)
     int Temp;
     Temp = A;
     A = B;
-    B = Temp;
+    B = Temp;  
 }
 
 // Function to fill an array with values from 1 to N
