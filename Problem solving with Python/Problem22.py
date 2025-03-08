@@ -27,8 +27,9 @@ Output:
 
 Original array: 11123 
 1 is repeated 3 time(s)
-"""
 ==========================================================================================
+
+"""
 
 def read_positive_number(message: str) -> int:
     """
