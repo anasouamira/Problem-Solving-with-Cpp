@@ -1,4 +1,4 @@
-/*
+"""
 Problem 30 |============================================================
 Write a program to fill array two arrays with max size 100 with random
 numbers from 1 to 100, sum their elements in a third array and print the
@@ -20,64 +20,67 @@ Sum of array1 and array2 elements:
 
 =========================================================================
 
-*/
+"""
+import random
 
-#include <iostream>
-using namespace std;
-// Function to generate a random number between 'From' and 'To'
-int RandomNumber(int From, int To)
-{
-    // Function to generate a random number
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;
-}
-// Function to read a positive integer from the user
-int ReadPositiveNumber(string Message)
-{
-    int Number = 0;
-    do
-    {
-        cout << Message << endl;
-        cin >> Number;
-    } while (Number <= 0);
-    return Number;
-}
-// Function to fill an array with random numbers between 1 and 100
-void FillArrayWithRandomNumbers(int arr[100], int arrLength)
-{
-    for (int i = 0; i < arrLength; i++)
-        arr[i] = RandomNumber(1, 100);
-}
-// Function to compute the sum of corresponding elements in two arrays
-void SumOf2Arrays(int arr1[100], int arr2[100], int arrSum[100], int arrLength)
-{
-    for (int i = 0; i < arrLength; i++)
-    {
-        arrSum[i] = arr1[i] + arr2[i];
-    }
-}
+def random_number(start: int, end: int) -> int:
+    """
+    Generates a random number within the given range [start, end].
+    """
+    return random.randint(start, end)
 
-// Function to print the elements of an array
-void PrintArray(int arr[100], int arrLength)
-{
-    for (int i = 0; i < arrLength; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
-}
-int main()
-{
-    // Seeds the random number generator in C++, called only once 
-    srand((unsigned)time(NULL));
-    int arr[100], arr2[100], arrSum[100];
-    int arrLength = ReadPositiveNumber("How many elements ?\n");
-    FillArrayWithRandomNumbers(arr, arrLength);
-    FillArrayWithRandomNumbers(arr2, arrLength);
-    SumOf2Arrays(arr, arr2, arrSum, arrLength);
-    cout << "\nArray 1 elements:\n";
-    PrintArray(arr, arrLength);
-    cout << "\nArray 2 elements:\n";
-    PrintArray(arr2, arrLength);
-    cout << "\nSum of array1 and array2 elements:\n";
-    PrintArray(arrSum, arrLength);
-    return 0;
-}
+def read_positive_number(message: str) -> int:
+    """
+    Reads a positive integer from the user.
+    Keeps prompting until a valid positive integer is entered.
+    """
+    while True:
+        try:
+            number = int(input(message))
+            if number > 0:
+                return number
+            print("Please enter a positive number.")
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
+def fill_array_with_random_numbers(arr_length: int) -> list:
+    """
+    Fills a list with random numbers between 1 and 100.
+    """
+    return [random_number(1, 100) for _ in range(arr_length)]
+
+def sum_of_two_arrays(arr1: list, arr2: list) -> list:
+    """
+    Computes the sum of corresponding elements in two lists.
+    """
+    return [arr1[i] + arr2[i] for i in range(len(arr1))]
+
+def print_array(arr: list):
+    """
+    Prints the elements of an array.
+    """
+    print(" ".join(map(str, arr)))
+
+if __name__ == "__main__":
+    # Seed the random number generator
+    random.seed()
+
+    # Read the number of elements
+    arr_length = read_positive_number("How many elements?\n")
+
+    # Generate two random arrays
+    arr1 = fill_array_with_random_numbers(arr_length)
+    arr2 = fill_array_with_random_numbers(arr_length)
+
+    # Compute sum of the two arrays
+    arr_sum = sum_of_two_arrays(arr1, arr2)
+
+    # Display results
+    print("\nArray 1 elements:")
+    print_array(arr1)
+
+    print("\nArray 2 elements:")
+    print_array(arr2)
+
+    print("\nSum of array1 and array2 elements:")
+    print_array(arr_sum)
