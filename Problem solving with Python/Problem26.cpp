@@ -1,4 +1,4 @@
-/*
+"""
 Problem 26 |=================================================
 Write a program to fill array with max size 100 with random
 numbers from 1 to 100, then print sum of all number
@@ -11,8 +11,8 @@ Output:
 Array Elements: 10 6 22 40 12 75 23 32 25 75
 Sum of all numbers:320
 =============================================================
+"""
 
-*/
 #include <iostream>
 using namespace std;
 
