@@ -1,4 +1,4 @@
-/*
+"""
 Problem 35 |=================================================
 Write a program to fill array with max size 100 with random numbers from
 110 100, read number and return its index in array if found otherwise
@@ -25,70 +25,66 @@ The number is not found :-(
 
 
 =============================================================
+"""
 
-*/
+import random
 
-#include <iostream>
-using namespace std;
+def random_number(from_val: int, to_val: int) -> int:
+    """
+    Generates a random number between 'from_val' and 'to_val' (inclusive).
+    """
+    return random.randint(from_val, to_val)
 
-int RandomNumber(int From, int To)
-{
-    // Function to generate a random number
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;
-}
-void FillArrayWithRandomNumbers(int arr[100], int &arrLength)
-{
-    cout << "\nEnter number of elements:\n";
-    cin >> arrLength;
-    for (int i = 0; i < arrLength; i++)
-        arr[i] = RandomNumber(1, 100);
-}
-void PrintArray(int arr[100], int arrLength)
-{
-    for (int i = 0; i < arrLength; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
-}
-short FindNumberPositionInArray(int Number, int arr[100], int arrLength)
-{
-    /*This function will search for a number in array and return
-    its index, or return -1 if it does not exists*/
-    for (int i = 0; i < arrLength; i++)
-    {
-        if (arr[i] == Number)
-            return i; // and return the index
-    }
-    // if you reached here, this means the number is not found
-    return -1;
-}
-int ReadNumber()
-{
-    int Number;
-    cout << "\nPlease enter a number to search for?\n";
-    cin >> Number;
-    return Number;
-}
-int main()
-{
-    // Seeds the random number generator in C++, called only once
-    srand((unsigned)time(NULL));
-    int arr[100], arrLength;
-    FillArrayWithRandomNumbers(arr, arrLength);
-    cout << "\nArray 1 elements:\n";
-    PrintArray(arr, arrLength);
-    int Number = ReadNumber();
-    cout << "\nNumber you are looking for is: " << Number << endl;
-    short NumberPosition = FindNumberPositionInArray(Number, arr,arrLength);
-    if (NumberPosition == -1)
-        cout << "The number is not found :-(\n";
-    else
-    {
-        cout << "The number found at position: ";
-        cout << NumberPosition << endl;
-        cout << "The number found its order  : ";
-        cout << NumberPosition + 1 << endl;
-    }
+def fill_array_with_random_numbers(arr_length: int) -> list:
+    """
+    Fills an array with random numbers between 1 and 100.
+    """
+    return [random_number(1, 100) for _ in range(arr_length)]
 
-    return 0;
-}
+def print_array(arr: list):
+    """
+    Prints the elements of an array.
+    """
+    print(" ".join(map(str, arr)))
+
+def find_number_position_in_array(number: int, arr: list) -> int:
+    """
+    Searches for a number in an array and returns its index, or -1 if not found.
+    """
+    try:
+        return arr.index(number)
+    except ValueError:
+        return -1
+
+def read_number() -> int:
+    """
+    Reads an integer from the user.
+    """
+    return int(input("\nPlease enter a number to search for:\n"))
+
+if __name__ == "__main__":
+    # Seed the random number generator
+    random.seed()
+
+    # Read array length from user
+    arr_length = int(input("\nEnter number of elements:\n"))
+
+    # Fill array with random numbers
+    arr = fill_array_with_random_numbers(arr_length)
+
+    # Print the array
+    print("\nArray elements:")
+    print_array(arr)
+
+    # Read a number to search for
+    number = read_number()
+    print("\nNumber you are looking for is:", number)
+
+    # Search for the number in the array
+    number_position = find_number_position_in_array(number, arr)
+
+    if number_position == -1:
+        print("The number is not found :-(")
+    else:
+        print(f"The number is found at index: {number_position}")
+        print(f"The number's order in the array: {number_position + 1}")
