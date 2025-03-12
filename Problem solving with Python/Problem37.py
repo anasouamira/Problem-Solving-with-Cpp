@@ -1,4 +1,4 @@
-/*
+"""
 Problem 37 |=================================================
 Write a program to fill array with max size 100 with random numbers from
 110 100, copy it to another array using AddArrayElement, and print it.
@@ -16,67 +16,53 @@ Array 2 elements after copy:
 
 1 47 51 18 85 62 51 61 82 4
 =============================================================
-*/
-#include <iostream>
-#include <cstdlib> // For rand() and srand()
-#include <ctime>   // For time()
+"""
+import random
 
-using namespace std;
+def random_number(from_num: int, to_num: int) -> int:
+    """
+    Generates a random number in the given range [from_num, to_num].
+    """
+    return random.randint(from_num, to_num)
 
-// Function to generate a random number in the given range
-int RandomNumber(int From, int To)
-{
-    return rand() % (To - From + 1) + From;
-}
+def fill_array_with_random_numbers() -> list:
+    """
+    Fills a list with random numbers between 1 and 100.
+    """
+    arr_length = int(input("\nEnter number of elements:\n"))
+    return [random_number(1, 100) for _ in range(arr_length)]
 
-// Function to fill an array with random numbers
-void FillArrayWithRandomNumbers(int arr[100], int &arrLength)
-{
-    cout << "\nEnter number of elements:\n";
-    cin >> arrLength;
-    for (int i = 0; i < arrLength; i++)
-        arr[i] = RandomNumber(1, 100); // Generates a random number between 1 and 100
-}
+def print_array(arr: list):
+    """
+    Prints the elements of a list.
+    """
+    print(" ".join(map(str, arr)))
 
-// Function to print the elements of an array
-void PrintArray(int arr[100], int arrLength)
-{
-    for (int i = 0; i < arrLength; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
-}
+def add_array_element(number: int, arr: list):
+    """
+    Adds an element to the list.
+    """
+    arr.append(number)
 
-// Function to add an element to the array
-void AddArrayElement(int Number, int arr[100], int &arrLength)
-{
-    // Increase the length of the array to accommodate the new element
-    arrLength++;
-    arr[arrLength - 1] = Number;
-}
+def copy_array_using_add_array_element(arr_source: list) -> list:
+    """
+    Copies elements from one list to another using the add_array_element function.
+    """
+    arr_destination = []
+    for num in arr_source:
+        add_array_element(num, arr_destination)
+    return arr_destination
 
-// Function to copy elements from one array to another using AddArrayElement function
-void CopyArrayUsingAddArrayElement(int arrSource[100], int arrDestination[100], int arrLength, int &arrDestinationLength)
-{
-    for (int i = 0; i < arrLength; i++)
-        AddArrayElement(arrSource[i], arrDestination, arrDestinationLength);
-}
+if __name__ == "__main__":
+    # Seed the random number generator
+    random.seed()
 
-int main()
-{
-    // Seeds the random number generator with the current time
-    srand((unsigned)time(NULL));
-    
-    int arr[100], arrLength = 0, arr2Length = 0;
-    FillArrayWithRandomNumbers(arr, arrLength);
-    
-    int arr2[100];
-    CopyArrayUsingAddArrayElement(arr, arr2, arrLength, arr2Length);
-    
-    cout << "\nArray 1 elements:\n";
-    PrintArray(arr, arrLength);
-    
-    cout << "\nArray 2 elements after copy:\n";
-    PrintArray(arr2, arr2Length);
-    
-    return 0;
-}
+    arr = fill_array_with_random_numbers()
+    arr2 = copy_array_using_add_array_element(arr)
+
+    print("\nArray 1 elements:")
+    print_array(arr)
+
+    print("\nArray 2 elements after copy:")
+    print_array(arr2)
+
