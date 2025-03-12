@@ -1,4 +1,4 @@
-/*
+"""
 Problem 36 |=================================================
 Write a program to dynamically read numbers and save them in an array
 Max size of array is 100, allocate simi-dynamic array length.
@@ -18,61 +18,44 @@ Do you want to add more numbers? [0JNo [1}yes? 0
 Array Length: 3
 Array elements: 10 20 30
 =============================================================
-*/
-#include <iostream>
-using namespace std;
+"""
+def read_number() -> int:
+    """
+    Reads an integer number from the user.
+    """
+    return int(input("\nPlease enter a number? "))
 
-// Function to read an integer number from the user
-int ReadNumber()
-{
-    int Number;
-    cout << "\nPlease enter a number? ";
-    cin >> Number;
-    return Number;
-}
+def add_array_element(number: int, arr: list):
+    """
+    Adds an element to the array.
+    """
+    arr.append(number)
 
-// Function to add an element to the array and increase its length
-void AddArrayElement(int Number, int arr[100], int &arrLength)
-{
-    // It's a new element, so we need to increase the length by 1
-    arrLength++;
-    arr[arrLength - 1] = Number; // Add the number at the new position
-}
-
-// Function to allow the user to input multiple numbers into the array
-void InputUserNumbersInArray(int arr[100], int &arrLength)
-{
-    bool AddMore = true; // Flag to control user input loop
-    do
-    {
-        // Read a number from the user and add it to the array
-        AddArrayElement(ReadNumber(), arr, arrLength);
+def input_user_numbers_in_array() -> list:
+    """
+    Allows the user to input multiple numbers into the array.
+    """
+    arr = []
+    while True:
+        add_array_element(read_number(), arr)
         
-        // Ask the user if they want to add more numbers
-        cout << "\nDo you want to add more numbers? [0]:No,[1]:Yes? ";
-        cin >> AddMore;
-    } while (AddMore); // Continue if the user chooses to add more numbers
-}
+        # Ask the user if they want to add more numbers
+        add_more = input("\nDo you want to add more numbers? [0]:No,[1]:Yes? ")
+        if add_more != "1":
+            break
+    return arr
 
-// Function to print all elements of the array
-void PrintArray(int arr[100], int arrLength)
-{
-    for (int i = 0; i < arrLength; i++)
-        cout << arr[i] << " "; // Print each element separated by a space
-    cout << "\n";
-}
+def print_array(arr: list):
+    """
+    Prints all elements of the array.
+    """
+    print(" ".join(map(str, arr)))
 
-int main()
-{
-    int arr[100], arrLength = 0; // Declare array and initialize its length
+if __name__ == "__main__":
+    # Get user input to fill the list
+    arr = input_user_numbers_in_array()
     
-    // Get user input to fill the array
-    InputUserNumbersInArray(arr, arrLength);
-    
-    // Display the array length and elements
-    cout << "\nArray Length: " << arrLength << endl;
-    cout << "Array elements: ";
-    PrintArray(arr, arrLength);
-    
-    return 0; // Return success code
-}
+    # Display the array length and elements
+    print("\nArray Length:", len(arr))
+    print("Array elements: ", end="")
+    print_array(arr)
