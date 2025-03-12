@@ -1,4 +1,4 @@
-/*
+"""
 Problem 35 |=================================================
 Write a program to fill array with max size 100 with random numbers from
 1 t0 100, read number and print if it's found or not (reuse code in prev
@@ -24,8 +24,8 @@ No, The number is not found :-(
 
 
 =============================================================
-*/
 
+"""
 #include <iostream>
 using namespace std;
 int ReadNumber()
