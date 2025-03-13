@@ -1,4 +1,4 @@
-/*
+
 Problem 39 |========================================================================
 Write a program to fill array with max size 100 with random numbers from
 110 100, copy only prime numbers fo another array using AddArrayElement,and print it.
@@ -15,7 +15,7 @@ Array 2 Prime numbers:
 62 13
 =============================================================
 
-*/
+
 #include <iostream>
 using namespace std;
 
