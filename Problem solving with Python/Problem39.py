@@ -1,4 +1,4 @@
-
+"""
 Problem 39 |========================================================================
 Write a program to fill array with max size 100 with random numbers from
 110 100, copy only prime numbers fo another array using AddArrayElement,and print it.
@@ -14,108 +14,58 @@ Array 1 elements:
 Array 2 Prime numbers:
 62 13
 =============================================================
+"""
 
+import random
+import math
 
-#include <iostream>
-using namespace std;
+def is_prime(number: int) -> bool:
+    """
+    Checks if a number is prime.
+    Returns True if the number is prime, otherwise False.
+    """
+    if number < 2:
+        return False
+    for i in range(2, math.isqrt(number) + 1):
+        if number % i == 0:
+            return False
+    return True
 
-// Enum to indicate if a number is Prime or Not Prime
-enum enPrimNotPrime
-{
-    Prime = 1,
-    NotPrime = 2
-};
+def random_number(from_num: int, to_num: int) -> int:
+    """
+    Generates a random number in the given range [from_num, to_num].
+    """
+    return random.randint(from_num, to_num)
 
-// Function to check if a given number is prime
-// Parameters: int Number - the number to be checked
-// Returns: enPrimNotPrime - Prime if the number is prime, NotPrime otherwise
-enPrimNotPrime CheckPrime(int Number)
-{
-    int M = round(Number / 2); // Check divisibility up to half of the number
-    for (int Counter = 2; Counter <= M; Counter++)
-    {
-        if (Number % Counter == 0) // If divisible by any number other than 1 and itself
-            return enPrimNotPrime::NotPrime;
-    }
-    return enPrimNotPrime::Prime; // Number is prime
-}
+def fill_array_with_random_numbers() -> list:
+    """
+    Fills a list with random numbers between 1 and 100.
+    """
+    arr_length = int(input("\nEnter number of elements:\n"))
+    return [random_number(1, 100) for _ in range(arr_length)]
 
-// Function to generate a random number within a given range
-// Parameters: int From - start of the range, int To - end of the range
-// Returns: int - a random number within the range [From, To]
-int RandomNumber(int From, int To)
-{
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;
-}
+def print_array(arr: list):
+    """
+    Prints the elements of a list.
+    """
+    print(" ".join(map(str, arr)))
 
-// Function to fill an array with random numbers
-// Parameters: int arr[100] - the array to fill
-//             int &arrLength - the number of elements to generate
-void FillArrayWithRandomNumbers(int arr[100], int &arrLength)
-{
-    cout << "\nEnter number of elements:\n";
-    cin >> arrLength;
-    for (int i = 0; i < arrLength; i++)
-        arr[i] = RandomNumber(1, 100); // Fill array with random numbers from 1 to 100
-}
+def copy_prime_numbers(arr_source: list) -> list:
+    """
+    Copies only prime numbers from one list to another.
+    """
+    return [num for num in arr_source if is_prime(num)]
 
-// Function to print elements of an array
-// Parameters: int arr[100] - the array to print
-//             int arrLength - the number of elements in the array
-void PrintArray(int arr[100], int arrLength)
-{
-    for (int i = 0; i < arrLength; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
-}
+if __name__ == "__main__":
+    # Seed the random number generator
+    random.seed()
 
-// Function to add an element to the end of an array
-// Parameters: int Number - the number to add
-//             int arr[100] - the array to add to
-//             int &arrLength - the current length of the array, updated after addition
-void AddArrayElement(int Number, int arr[100], int &arrLength)
-{
-    arrLength++; // Increase the length of the array
-    arr[arrLength - 1] = Number; // Add the number at the end of the array
-}
+    arr = fill_array_with_random_numbers()
+    arr2 = copy_prime_numbers(arr)
 
-// Function to copy prime numbers from one array to another
-// Parameters: int arrSource[100] - source array to copy from
-//             int arrDestination[100] - destination array to copy to
-//             int arrLength - length of the source array
-//             int &arrDestinationLength - length of the destination array, updated after copying
-void CopyPrimeNumbers(int arrSource[100], int arrDestination[100],
-                        int arrLength, int &arrDestinationLength)
-{
-    for (int i = 0; i < arrLength; i++)
-        if (CheckPrime(arrSource[i]) == enPrimNotPrime::Prime)
-        {
-            AddArrayElement(arrSource[i], arrDestination, arrDestinationLength);
-        }
-}
+    print("\nArray 1 elements:")
+    print_array(arr)
 
-int main()
-{
-    // Seeds the random number generator in C++, called only once
-    srand((unsigned)time(NULL));
+    print("\nArray 2 Prime numbers:")
+    print_array(arr2)
 
-    int arr[100], arrLength = 0, arr2Length = 0;
-    int arr2[100]; // Array to store prime numbers
-
-    // Fill the first array with random numbers
-    FillArrayWithRandomNumbers(arr, arrLength);
-
-    // Copy prime numbers from the first array to the second array
-    CopyPrimeNumbers(arr, arr2, arrLength, arr2Length);
-
-    // Display the original array
-    cout << "\nArray 1 elements:\n";
-    PrintArray(arr, arrLength);
-
-    // Display the array containing prime numbers
-    cout << "\nArray 2 Prime numbers:\n";
-    PrintArray(arr2, arr2Length);
-
-    return 0;
-}
