@@ -1,4 +1,4 @@
-/*
+"""
 Problem 40 |=================================================
 Write a program to fill array with numbers, then print distinct
 numbers to another array.
@@ -12,7 +12,7 @@ Array 1 elements:
 Array 2 distinct elements:
 10 50 70 90
 =============================================================
-*/
+"""
 #include <iostream>
 using namespace std;
 
