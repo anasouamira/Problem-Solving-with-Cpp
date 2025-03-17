@@ -1,4 +1,4 @@
-/*
+"""
 Problem 41 |=================================================
 Write a program to fill array with numbers, then check if it is Palindrome
 array or not, Note: Palindrome array can be read the same from right to
@@ -14,7 +14,7 @@ Array Elements:
 
 Yes array is Palindrome 
 =============================================================
-*/
+"""
 #include <iostream>
 using namespace std;
 
