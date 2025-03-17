@@ -15,65 +15,37 @@ Array Elements:
 Yes array is Palindrome 
 =============================================================
 """
-#include <iostream>
-using namespace std;
+def fill_array():
+    """
+    Fills a list with predefined elements.
+    Returns:
+        list: A list containing the predefined elements.
+    """
+    return [10, 20, 30, 30, 20, 10]
 
-// Function to fill the array with predefined elements and set the length
-void FillArray(int arr[100], int &arrLength)
-{
-    // Manually filling the array with the elements: 10, 20, 30, 30, 20, 10
-    arrLength = 6;
-    arr[0] = 10;
-    arr[1] = 20;
-    arr[2] = 30;
-    arr[3] = 30;
-    arr[4] = 20;
-    arr[5] = 10;
-}
+def print_array(arr):
+    """
+    Prints the elements of a list.
+    """
+    print(" ".join(map(str, arr)))
 
-// Function to print the elements of the array
-void PrintArray(int arr[100], int arrLength)
-{
-    // Loop through the array and print each element followed by a space
-    for (int i = 0; i < arrLength; i++)
-        cout << arr[i] << " ";
-    cout << "\n";  // New line after printing all elements
-}
+def is_palindrome_array(arr):
+    """
+    Checks if the given list is a palindrome.
+    Args:
+        arr (list): The list to check.
+    Returns:
+        bool: True if the list is a palindrome, False otherwise.
+    """
+    return arr == arr[::-1]  # Checks if the list is equal to its reverse
 
-// Function to check if the array is a palindrome
-bool IsPalindromeArray(int arr[100], int Length)
-{
-    // Loop to compare elements from the start and end moving towards the center
-    for (int i = 0; i < Length; i++)
-    {
-        // If elements are not equal, the array is not a palindrome
-        if (arr[i] != arr[Length - i - 1])
-        {
-            return false;
-        }
-    }
-    // If all compared elements are equal, the array is a palindrome
-    return true;
-}
+if __name__ == "__main__":
+    arr = fill_array()
 
-int main()
-{
-    // Declare an array with a maximum size of 100 and initialize Length to 0
-    int arr[100], Length = 0;
-    
-    // Call the function to fill the array and determine its length
-    FillArray(arr, Length);
-    
-    // Display the array elements
-    cout << "\nArray Elements:\n";
-    PrintArray(arr, Length);
-    
-    // Check if the array is a palindrome and display the result
-    if (IsPalindromeArray(arr, Length))
-        cout << "\nYes, array is Palindrome\n";
-    else
-        cout << "\nNo, array is NOT Palindrome\n";
-    
-    // Return 0 to indicate successful execution
-    return 0;
-}
+    print("\nArray Elements:")
+    print_array(arr)
+
+    if is_palindrome_array(arr):
+        print("\nYes, array is Palindrome")
+    else:
+        print("\nNo, array is NOT Palindrome")
