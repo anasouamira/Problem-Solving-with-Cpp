@@ -17,7 +17,6 @@ Do you want to add more numbers? [0] No [1] yes? 0
 
 Array Length: 3
 Array elements: 10 20 30 
-
 =============================================================
 */
 #include <iostream>
