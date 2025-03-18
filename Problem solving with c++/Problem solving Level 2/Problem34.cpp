@@ -1,7 +1,7 @@
 /*
 Problem 35 |=================================================
 Write a program to fill array with max size 100 with random numbers from
-110 100, read number and return its index in array if found otherwise
+1 to 100, read number and return its index in array if found otherwise
 return -1. 
 
 Input
