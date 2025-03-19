@@ -1,4 +1,4 @@
-/*
+"""
 Problem 45 |=================================================
 Write a program fo fill array with max size 100 with random
 numbers from -100 to 100, then print the count of Positive 
@@ -11,8 +11,8 @@ Array Elements: 17 -9 -9 -90 -72 -100 -4 60 -84 -15
 
 Positive Numbers count is: 2 
 =============================================================
-*/
-#include <iostream>
+
+"""#include <iostream>
 using namespace std;
 
 // Function to generate a random number between From and To (inclusive)
