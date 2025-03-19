@@ -1,7 +1,7 @@
 /*
 Problem 37 |=================================================
 Write a program to fill array with max size 100 with random numbers from
-110 100, copy it to another array using AddArrayElement, and print it.
+1 to 100, copy it to another array using AddArrayElement, and print it.
 
 Input
 10 
