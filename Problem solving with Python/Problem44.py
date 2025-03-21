@@ -12,76 +12,61 @@ Array Elements: 17 -9 -9 -90 -72 -100 -4 60 -84 -15
 Positive Numbers count is: 2 
 =============================================================
 
-"""#include <iostream>
-using namespace std;
+"""
+import random
 
-// Function to generate a random number between From and To (inclusive)
-int RandomNumber(int From, int To)
-{
-    // Calculate a random number in the specified range
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;
-}
+def random_number(start, end):
+    """
+    Generates a random number between start and end (inclusive).
+    
+    Args:
+        start (int): Lower bound of the range.
+        end (int): Upper bound of the range.
+        
+    Returns:
+        int: Random number in the given range.
+    """
+    return random.randint(start, end)
 
-// Function to fill the array with random numbers
-void FillArrayWithRandomNumbers(int arr[100], int &arrLength)
-{
-    // Prompt the user to enter the number of elements in the array
-    cout << "\nEnter number of elements:\n";
-    cin >> arrLength;
+def fill_array_with_random_numbers():
+    """
+    Fills a list with random numbers in the range -100 to 100.
     
-    // Fill the array with random numbers between -100 and 100
-    for (int i = 0; i < arrLength; i++)
-        arr[i] = RandomNumber(-100, 100);
-}
+    Returns:
+        list: A list of random numbers.
+    """
+    arr_length = int(input("\nEnter number of elements:\n"))
+    return [random_number(-100, 100) for _ in range(arr_length)]
 
-// Function to print the elements of the array
-void PrintArray(int arr[100], int arrLength)
-{
-    // Loop through the array and print each element followed by a space
-    for (int i = 0; i < arrLength; i++)
-        cout << arr[i] << " ";
-    cout << "\n";  // New line after printing all elements
-}
+def print_array(arr):
+    """
+    Prints the elements of a list.
+    
+    Args:
+        arr (list): The list to print.
+    """
+    print(" ".join(map(str, arr)))
 
-// Function to count the number of positive numbers (including zero) in the array
-int PositiveCount(int arr[100], int arrLength)
-{
-    // Initialize a counter for positive numbers
-    int Counter = 0;
+def positive_count(arr):
+    """
+    Counts the number of positive numbers (including zero) in the list.
     
-    // Loop through the array and check each element
-    for (int i = 0; i < arrLength; i++)
-    {
-        // If the element is positive or zero, increment the counter
-        if (arr[i] >= 0)
-        {
-            Counter++;
-        }
-    }
-    // Return the total count of positive numbers
-    return Counter;
-}
+    Args:
+        arr (list): The list to analyze.
+        
+    Returns:
+        int: The count of positive numbers.
+    """
+    return sum(1 for num in arr if num >= 0)
 
-int main()
-{
-    // Seed the random number generator to ensure different random numbers each run
-    srand((unsigned)time(NULL));
-    
-    // Declare an array with a maximum size of 100 and a variable for its length
-    int arr[100], arrLength;
-    
-    // Call the function to fill the array with random numbers
-    FillArrayWithRandomNumbers(arr, arrLength);
-    
-    // Display the array elements
-    cout << "\nArray Elements: ";
-    PrintArray(arr, arrLength);
-    
-    // Display the count of positive numbers in the array
-    cout << "\nPositive Numbers count is: ";
-    cout << PositiveCount(arr, arrLength) << endl;
-    
-    // Return 0 to indicate successful execution
-    return 0;
-}
+if __name__ == "__main__":
+    # Seed the random number generator
+    random.seed()
+
+    arr = fill_array_with_random_numbers()
+
+    print("\nArray Elements: ")
+    print_array(arr)
+
+    print("\nPositive Numbers count is:", positive_count(arr))
+
