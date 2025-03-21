@@ -25,41 +25,31 @@ My Round Result : -11
 C++ Round Result: -11
 =============================================================
 """
-#include <iostream>
-using namespace std;
+import math
 
-// Function to find the floor of a floating-point number
-// Floor of a number is the greatest integer less than or equal to the number
-int MyFloor(float Number)
-{
-    // If the number is positive, the floor is simply the integer part
-    if (Number > 0)
-        return int(Number);
-    else
-        // If the number is negative and not an exact integer, subtract 1
-        return int(Number) - 1;
-}
+# Function to find the floor of a floating-point number
+# Floor of a number is the greatest integer less than or equal to the number
+def my_floor(number):
+    # If the number is positive, the floor is simply the integer part
+    if number > 0:
+        return int(number)
+    else:
+        # If the number is negative and not an exact integer, subtract 1
+        return int(number) - 1
 
-// Function to read a floating-point number from the user
-float ReadNumber()
-{
-    float Number;
-    cout << "Please enter a number? ";
-    cin >> Number;
-    return Number;
-}
+# Function to read a floating-point number from the user
+def read_number():
+    number = float(input("Please enter a number: "))
+    return number
 
-int main()
-{
-    // Read the number from the user
-    float Number = ReadNumber();
+if __name__ == "__main__":
+    # Read the number from the user
+    number = read_number()
 
-    // Display the result of custom floor calculation using MyFloor()
-    cout << "My MyFloor Result : " << MyFloor(Number) << endl;
+    # Display the result of custom floor calculation using my_floor()
+    print("My MyFloor Result:", my_floor(number))
 
-    // Display the result of standard C++ floor calculation using floor()
-    cout << "C++ floor Result  : " << floor(Number) << endl;
+    # Display the result of standard Python floor calculation using math.floor()
+    print("Python floor Result:", math.floor(number))
 
-    return 0;
-}
 
