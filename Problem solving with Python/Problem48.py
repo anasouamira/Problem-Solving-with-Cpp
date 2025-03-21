@@ -1,4 +1,4 @@
-/*
+"""
 Problem 48 |=================================================
 Write a program to print floor of numbers , don't use built in
 floor function 
@@ -24,7 +24,7 @@ Output:
 My Round Result : -11
 C++ Round Result: -11
 =============================================================
-*/
+"""
 #include <iostream>
 using namespace std;
 

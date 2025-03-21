@@ -25,64 +25,44 @@ My Round Result : -11
 C++ Round Result: -11
 ==============================================================
 """
+# Function to get the fractional part of a floating-point number
+# Example: If Number = 4.75, it returns 0.75
+def get_fraction_part(number):
+    return number - int(number)
 
-#include <iostream>
-using namespace std;
+# Function to round a floating-point number to the nearest integer
+# It uses custom rounding logic similar to standard rounding rules
+def my_round(number):
+    # Get the integer part of the number
+    int_part = int(number)
 
-// Function to get the fractional part of a floating-point number
-// Example: If Number = 4.75, it returns 0.75
-float GetFractionPart(float Number)
-{
-    return Number - int(Number);
-}
+    # Get the fractional part of the number using get_fraction_part()
+    fraction_part = get_fraction_part(number)
 
-// Function to round a floating-point number to the nearest integer
-// It uses custom rounding logic similar to standard rounding rules
-int MyRound(float Number)
-{
-    int IntPart;
-    // Get the integer part of the number
-    IntPart = int(Number);
+    # If the absolute value of the fractional part is greater than or equal to 0.5
+    if abs(fraction_part) >= 0.5:
+        # If the number is positive, round up
+        if number > 0:
+            return int_part + 1
+        # If the number is negative, round down
+        else:
+            return int_part - 1
+    else:
+        # If the fractional part is less than 0.5, return the integer part
+        return int_part
 
-    // Get the fractional part of the number using GetFractionPart()
-    float FractionsPart = GetFractionPart(Number);
+# Function to read a floating-point number from the user
+def read_number():
+    number = float(input("Please enter a float number: "))
+    return number
 
-    // If the absolute value of the fractional part is greater than or equal to 0.5
-    if (abs(FractionsPart) >= .5)
-    {
-        // If the number is positive, round up
-        if (Number > 0)
-            return ++IntPart;
-        // If the number is negative, round down
-        else
-            return --IntPart;
-    }
-    else
-    {
-        // If the fractional part is less than 0.5, return the integer part
-        return IntPart;
-    }
-}
+if __name__ == "__main__":
+    # Read the number from the user
+    number = read_number()
 
-// Function to read a floating-point number from the user
-float ReadNumber()
-{
-    float Number;
-    cout << "Please enter a float number? ";
-    cin >> Number;
-    return Number;
-}
+    # Display the result of custom rounding using my_round()
+    print("My Round Result:", my_round(number))
 
-int main()
-{
-    // Read the number from the user
-    float Number = ReadNumber();
+    # Display the result of standard Python rounding using round()
+    print("Python Round Result:", round(number))
 
-    // Display the result of custom rounding using MyRound()
-    cout << "My Round Result : " << MyRound(Number) << endl;
-
-    // Display the result of standard C++ rounding using round()
-    cout << "C++ Round Result: " << round(Number) << endl;
-
-    return 0;
-}
