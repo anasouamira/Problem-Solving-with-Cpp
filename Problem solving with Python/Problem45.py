@@ -14,68 +14,60 @@ Array Elements: -58 -16 -21 -4 -91 82 98 66 -8 -33
 Negative Numbers count is: 7
 =============================================================
 """
-#include <iostream>
-using namespace std;
+import random
 
-// Function to generate a random number between 'From' and 'To' (inclusive)
-int RandomNumber(int From, int To)
-{
-    // Calculate and return a random number within the specified range
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;
-}
+def random_number(start, end):
+    """
+    Generates a random number between start and end (inclusive).
+    
+    Args:
+        start (int): Lower bound of the range.
+        end (int): Upper bound of the range.
+        
+    Returns:
+        int: Random number in the given range.
+    """
+    return random.randint(start, end)
 
-// Function to fill an array with random numbers
-// Prompts the user to enter the number of elements, then fills the array with random numbers between -100 and 100
-void FillArrayWithRandomNumbers(int arr[100], int &arrLength)
-{
-    cout << "\nEnter number of elements:\n";
-    cin >> arrLength;
-    // Loop to populate the array with random numbers
-    for (int i = 0; i < arrLength; i++)
-        arr[i] = RandomNumber(-100, 100);
-}
+def fill_array_with_random_numbers():
+    """
+    Fills a list with random numbers in the range -100 to 100.
+    
+    Returns:
+        list: A list of random numbers.
+    """
+    arr_length = int(input("\nEnter number of elements:\n"))
+    return [random_number(-100, 100) for _ in range(arr_length)]
 
-// Function to print the elements of the array
-void PrintArray(int arr[100], int arrLength)
-{
-    // Loop through the array and print each element
-    for (int i = 0; i < arrLength; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
-}
+def print_array(arr):
+    """
+    Prints the elements of a list.
+    
+    Args:
+        arr (list): The list to print.
+    """
+    print(" ".join(map(str, arr)))
 
-// Function to count negative numbers in the array
-int NegativeCount(int arr[100], int arrLength)
-{
-    int Counter = 0;
-    // Loop through the array to count negative numbers
-    for (int i = 0; i < arrLength; i++)
-    {
-        if (arr[i] < 0)
-        {
-            Counter++;
-        }
-    }
-    return Counter;
-}
+def negative_count(arr):
+    """
+    Counts the number of negative numbers in the list.
+    
+    Args:
+        arr (list): The list to analyze.
+        
+    Returns:
+        int: The count of negative numbers.
+    """
+    return sum(1 for num in arr if num < 0)
 
-int main()
-{
-    // Seeds the random number generator in C++, called only once
-    srand((unsigned)time(NULL));
-    int arr[100], arrLength;
+if __name__ == "__main__":
+    # Seed the random number generator
+    random.seed()
 
-    // Fill the array with random numbers
-    FillArrayWithRandomNumbers(arr, arrLength);
+    arr = fill_array_with_random_numbers()
 
-    // Display the array elements
-    cout << "\nArray Elements: ";
-    PrintArray(arr, arrLength);
+    print("\nArray Elements: ")
+    print_array(arr)
 
-    // Count and display the number of negative numbers in the array
-    cout << "\nNegative Numbers count is: ";
-    cout << NegativeCount(arr, arrLength) << endl;
+    print("\nNegative Numbers count is:", negative_count(arr))
 
-    return 0;
-}
