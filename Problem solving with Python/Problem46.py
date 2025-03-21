@@ -13,41 +13,27 @@ My abs Result : 10
 C++ abs Result: 10
 ================================================================
 """
-#include <iostream>
-using namespace std;
+# Function to calculate the absolute value of a number
+# Returns the positive value of the input number
+def my_abs(number):
+    if number > 0:
+        return number
+    else:
+        return number * -1
 
-// Function to calculate the absolute value of a number
-// Returns the positive value of the input number
-float MyABS(float Number)
-{
-    // Check if the number is positive
-    if (Number > 0)
-        return Number;
-    else
-        // If negative, multiply by -1 to make it positive
-        return Number * -1;
-}
+# Function to prompt the user to enter a number
+# Reads and returns a floating-point number from the user
+def read_number():
+    number = float(input("Please enter a number: "))
+    return number
 
-// Function to prompt the user to enter a number
-// Reads and returns a floating-point number from the user
-float ReadNumber()
-{
-    float Number;
-    cout << "Please enter a number?";
-    cin >> Number;
-    return Number;
-}
+if __name__ == "__main__":
+    # Read a number from the user
+    number = read_number()
 
-int main()
-{
-    // Read a number from the user
-    float Number = ReadNumber();
+    # Display the result of the custom absolute value function
+    print("My abs Result:", my_abs(number))
 
-    // Display the result of custom absolute value function
-    cout << "My abs Result : " << MyABS(Number) << endl;
+    # Display the result of the built-in Python abs function
+    print("Python abs Result:", abs(number))
 
-    // Display the result of the built-in C++ abs function
-    cout << "C++ abs Result: " << abs(Number) << endl;
-
-    return 0;
-}
