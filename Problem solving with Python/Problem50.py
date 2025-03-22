@@ -1,4 +1,4 @@
-/*
+"""
 Problem 50 |=================================================
 Write a program to print Sqrt of numbers , don't use built in
 sqrt function
@@ -11,7 +11,7 @@ Output:
 My MySqrt Result : 5
 C++ sqrt Result: 5
 =============================================================
-*/
+"""
 #include <iostream>
 #include <cmath> // Include cmath for sqrt and pow
 using namespace std;
