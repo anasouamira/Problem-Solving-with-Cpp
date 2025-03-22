@@ -12,33 +12,20 @@ My MySqrt Result : 5
 C++ sqrt Result: 5
 =============================================================
 """
-#include <iostream>
-#include <cmath> // Include cmath for sqrt and pow
-using namespace std;
+import math
 
-// Function to calculate the square root of a number
-float MySqrt(float Number)
-{
-    return pow(Number, 0.5);
-}
+# Function to calculate the square root of a number
+def my_sqrt(number):
+    return number ** 0.5  # Equivalent to pow(number, 0.5)
 
-// Function to read a number from the user
-float ReadNumber()
-{
-    float Number;
-    cout << "Please enter a number: ";
-    cin >> Number;
-    return Number;
-}
+# Function to read a number from the user
+def read_number():
+    return float(input("Please enter a number: "))
 
-int main()
-{
-    float Number = ReadNumber();
+# Main function
+if __name__ == "__main__":
+    number = read_number()
     
-    // Display results using custom and built-in sqrt functions
-    cout << "My MySqrt Result : " << MySqrt(Number) << endl;
-    cout << "C++ sqrt Result: " << sqrt(Number) << endl;
-    
-    return 0;
-}
-
+    # Display results using custom and built-in sqrt functions
+    print("My MySqrt Result:", my_sqrt(number))
+    print("Python sqrt Result:", math.sqrt(number))
