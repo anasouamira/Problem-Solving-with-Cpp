@@ -1,4 +1,4 @@
-/*
+"""
 Problem 49 |=================================================
 Write a program to print Ceil of numbers , don't use built in Ceil
 function
@@ -17,7 +17,7 @@ Output:
 My Round Result : -10
 C++ Round Result: -10
 =============================================================
-*/
+"""
 
 #include <iostream>
 #include <cmath> // Include cmath for ceil()
