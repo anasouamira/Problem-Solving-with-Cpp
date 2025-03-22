@@ -18,41 +18,27 @@ My Round Result : -10
 C++ Round Result: -10
 =============================================================
 """
+import math
 
-#include <iostream>
-#include <cmath> // Include cmath for ceil()
-using namespace std;
+# Function to get the fractional part of a floating-point number
+def get_fraction_part(number):
+    return number - int(number)
 
-// Function to get the fractional part of a floating-point number
-float GetFractionPart(float Number)
-{
-    return Number - int(Number);
-}
+# Custom implementation of ceil function
+def my_ceil(number):
+    integer_part = int(number)  # Get integer part
+    if number > 0 and get_fraction_part(number) > 0:
+        return integer_part + 1
+    return integer_part
 
-// Custom implementation of ceil function
-int MyCeil(float Number)
-{
-    int integerPart = int(Number); // Get integer part
-    if (Number > 0 && GetFractionPart(Number) > 0) 
-        return integerPart + 1;
-    return integerPart;
-}
+# Function to read a number from user input
+def read_number():
+    return float(input("Please enter a number: "))
 
-// Function to read a number from user input
-float ReadNumber()
-{
-    float Number;
-    cout << "Please enter a number: ";
-    cin >> Number;
-    return Number;
-}
-
-// Main function
-int main()
-{
-    float Number = ReadNumber();
-    cout << "My MyCeil Result: " << MyCeil(Number) << endl;
-    cout << "C++ ceil Result: " << ceil(Number) << endl;
-    return 0;
-}
-
+# Main function
+if __name__ == "__main__":
+    number = read_number()
+    
+    # Displaying results
+    print("My MyCeil Result:", my_ceil(number))
+    print("Python ceil Result:", math.ceil(number))
