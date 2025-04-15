@@ -6,12 +6,19 @@ and them, then multiply them into a 3rd matrix and print it.
 Output :
 
 Matrix1:
-
+ 06  01  07
+ 06  01  02
+ 09  06  01
 
 Matrix2:
-
+ 10  09  06
+ 05  04  04
+ 07  09  01
 
 Results:
+ 60  09  42
+ 30  04  08
+ 63  54  01
 
 =============================================================
 */
@@ -55,8 +62,7 @@ void PrintMatrix(int arr[3][3], short Rows, short Cols)
 }
 
 // Function to multiply two matrices element-by-element
-void MultiplyMatrix(int Matrix1[3][3], int Matrix2[3][3],
-                    int MatrixResults[3][3], short Rows, short Cols)
+void MultiplyMatrix(int Matrix1[3][3], int Matrix2[3][3],int MatrixResults[3][3], short Rows, short Cols)
 {
     for (short i = 0; i < Rows; i++)
     {
