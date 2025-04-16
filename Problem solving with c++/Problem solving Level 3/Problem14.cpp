@@ -1,7 +1,7 @@
 /*
 Problem 01 |=================================================
 
-Write a program to check if the matrix is identity or not.
+Write a program to check if the matrix is Scalar or not.
 
 Output :
 
@@ -10,7 +10,7 @@ Matrix1:
 0  1  0
 0  0  1
 
-YES: Matrix is identity.
+YES: Matrix is Scalar.
 =============================================================
 */
 #include <iostream>
@@ -69,9 +69,9 @@ int main()
     PrintMatrix(Matrix1, 3, 3);
 
     if (IsScalarMatrix(Matrix1, 3, 3))
-        cout << "\nYES: Matrix is scalar.";
+        cout << "\nYES: Matrix is Scalar.";
     else
-        cout << "\nNO: Matrix is NOT scalar.";
+        cout << "\nNO: Matrix is NOT Scalar.";
 
     system("pause>0");
 }
