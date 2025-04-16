@@ -14,7 +14,7 @@ Matrix1:
  Matrix2:
  04  09  02
  04  10  08
- 10  05  01
+ 10  05  09
 
 No: matrices are NOT equal.
 
