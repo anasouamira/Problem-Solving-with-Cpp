@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 11 |=================================================
 
 Write a program to compare two matrices and check if they
 are equal or not.

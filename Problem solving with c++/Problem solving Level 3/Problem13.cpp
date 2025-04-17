@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 13 |=================================================
 
 Write a program to check if the matrix is identity or not.
 

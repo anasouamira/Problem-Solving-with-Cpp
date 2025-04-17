@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 08 |=================================================
 
 Write a program to fill two 3x3 matrix with random numbers
 and them, then multiply them into a 3rd matrix and print it.

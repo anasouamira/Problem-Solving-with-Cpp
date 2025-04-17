@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 04 |=================================================
 
 Write a program to fill a 3x3 matrix with random numbers,
 then print each Col sum:

@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 15 |=================================================
 
 Write a program to count given number in matrix.
 

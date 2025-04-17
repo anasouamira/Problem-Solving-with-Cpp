@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 07 |=================================================
 
 Write a program to fill a 3x3 matrix with ordered numbers
 and print it, then transpose matrix and print it. 

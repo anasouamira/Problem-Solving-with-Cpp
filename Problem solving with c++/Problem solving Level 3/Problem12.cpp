@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 12 |=================================================
 
 Write a program to compare two matrices and check if they
 are typical or not.

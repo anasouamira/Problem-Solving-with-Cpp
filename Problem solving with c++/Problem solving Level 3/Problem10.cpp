@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 10 |=================================================
 
 Write a program to fill two 3x3 matrix with random numbers
 and them, then write a function to sum all numbers in this

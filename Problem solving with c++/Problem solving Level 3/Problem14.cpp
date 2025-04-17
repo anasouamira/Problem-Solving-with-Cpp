@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 14 |=================================================
 
 Write a program to check if the matrix is Scalar or not.
 

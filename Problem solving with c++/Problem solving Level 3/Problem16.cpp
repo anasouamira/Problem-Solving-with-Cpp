@@ -1,5 +1,5 @@
 /*
-Problem 01 |=================================================
+Problem 16 |=================================================
 
 Write a program to check if the matrix is Sparse or not.
 
