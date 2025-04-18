@@ -1,5 +1,5 @@
 /*
-Problem 18 |=================================================
+Problem 20 |=================================================
 
 Write a program to check it the matrix is Palindrome or not.
 
