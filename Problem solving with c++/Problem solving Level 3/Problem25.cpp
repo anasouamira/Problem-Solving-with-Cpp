@@ -1,5 +1,5 @@
 /*
-Problem 23 |=================================================
+Problem 25 |=================================================
 
 Write a program to read a string then lowerrcase the first
 letter of each word in that string
