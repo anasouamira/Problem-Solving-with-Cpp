@@ -1,5 +1,5 @@
 /*
-Problem 23 |=================================================
+Problem 26 |=================================================
 
 Write a program to read a string then upper all letters , then
 lower all letters , and print them.
