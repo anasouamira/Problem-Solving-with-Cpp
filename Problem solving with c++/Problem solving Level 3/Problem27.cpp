@@ -1,5 +1,5 @@
 /*
-Problem 23 |=================================================
+Problem 27 |=================================================
 
 Write a program fo read a character then invert it's case 
 and print it.
