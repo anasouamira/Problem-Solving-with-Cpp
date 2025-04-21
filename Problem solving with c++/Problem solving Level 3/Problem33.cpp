@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 33 |=================================================
 
 Write a program fo read a string then count all vowels in that
 string (Vowels are: a, e, i, o, u)
