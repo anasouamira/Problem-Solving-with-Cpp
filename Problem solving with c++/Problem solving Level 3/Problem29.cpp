@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 29 |=================================================
 
 Write a program to read a string then count small/capital
 letters in that string
