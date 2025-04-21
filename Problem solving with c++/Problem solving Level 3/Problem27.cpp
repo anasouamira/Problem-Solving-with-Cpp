@@ -1,13 +1,15 @@
 /*
 Problem 27 |=================================================
 
-Write a program fo read a character then invert it's case 
-and print it.
+Write a program to read a string then invert all its letter's
+case and print it.
 
 input : 
 
 Please Enter a Character? 
 a 
+
+Output : 
 char after inverting case:
 A 
 =============================================================
