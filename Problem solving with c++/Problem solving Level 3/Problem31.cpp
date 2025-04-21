@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 31 |=================================================
 
 Write a program to read a string and read a character then |
 count the character in that string (Match Case or Not)
