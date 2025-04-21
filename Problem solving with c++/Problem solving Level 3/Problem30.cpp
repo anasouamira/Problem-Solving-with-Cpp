@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 30 |=================================================
 
 a program to read a string and read a character then 
 the character in that string
