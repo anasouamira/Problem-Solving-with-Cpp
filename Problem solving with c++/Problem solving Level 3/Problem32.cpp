@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 32 |=================================================
 
 Write a program to read a character the check if it is a vowel
 or not (Vowels are: a, e ,i, o,u)
