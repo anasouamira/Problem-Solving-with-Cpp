@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 39 |=================================================
 
 Write a program to join vector of strings into a one string
 with separators
