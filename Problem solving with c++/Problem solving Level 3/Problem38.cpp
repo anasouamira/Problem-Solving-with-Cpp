@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 38 |=================================================
 
 Write a program fo read a string then Trim Left, Right , All
 
