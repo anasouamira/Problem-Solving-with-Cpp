@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 36 |=================================================
 
 Write a program fo read a string then print each word in that
 string.
