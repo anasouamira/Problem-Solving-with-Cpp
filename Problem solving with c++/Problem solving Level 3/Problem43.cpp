@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 43 |=================================================
 
 Write a program to replace words in string using custom
 function:
