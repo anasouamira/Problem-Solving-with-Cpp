@@ -1,18 +1,22 @@
 /*
 Problem 48 |=================================================
 
-Write a program to convert line data fo record and print it:
+Write a program to read clients file and show them on the
+screen as follows: 
 
-Adding New Client:
+                                        Client List (3) Client(s).
+________________________________________________________________________________________________
 
-Client Data:
-Enter Account Number :  A150
-Enter PinCode :  1234
-Enter Name :  Mohanmed Abu-Hadhoud
-Enter Phone :  079939999
-Enter AccountBalance :  5660
+| Account Number | Pin Code  | Client Name                             | Phone       | Balance
+________________________________________________________________________________________________
 
-Client Added Successfully, do you want to add more clients : 
+| 123            | 9887      | Anas                                    | 064567787   | 812387
+| 123            | 9878      | sad                                     | 064567787   | 812387
+| 123            | 9878      | Ouamira                                 | 064567787   | 812387
+
+________________________________________________________________________________________________
+
+
 
 ===============================================================
 */
