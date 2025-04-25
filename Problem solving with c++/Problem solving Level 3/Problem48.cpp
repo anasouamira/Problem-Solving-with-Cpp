@@ -1,5 +1,5 @@
 /*
-Problem 27 |=================================================
+Problem 48 |=================================================
 
 Write a program to convert line data fo record and print it:
 
