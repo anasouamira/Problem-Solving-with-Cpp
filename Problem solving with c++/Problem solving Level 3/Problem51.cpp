@@ -13,11 +13,14 @@ Name : Mohammed Abu-Hadhoud
 Phone : 093938838
 Account Balance: 5000
 
-Are you sure you want delete this client? y/n ? y
-Client Deleted Successfully.
+Are you sure you want update this client? (y/n): 
 
-Please enter AccountNumber? B33
-Client with Account Number (B33) Not Found!
+Pin Code : 1234
+Name : anas Abu-Hadhoud
+Phone : 093938838
+Account Balance: 5000
+
+Client Updated Successfully.
 
 ===============================================================
 */
