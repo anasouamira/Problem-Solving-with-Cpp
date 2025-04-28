@@ -4,7 +4,6 @@ Problem 24 |=================================================
 Write a program to read a string then uppercase the first
 letter of each word in that string
 
-
 Output :
 Please Enter Your String?
 mohammed sager abu-Hadhoud
