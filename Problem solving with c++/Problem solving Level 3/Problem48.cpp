@@ -112,7 +112,7 @@ void PrintClientRecord(sClient Client)
     cout << "| " << setw(10) << left << Client.PinCode;
     cout << "| " << setw(40) << left << Client.Name;
     cout << "| " << setw(12) << left << Client.Phone;
-    cout << "| " << setw(12) << left << Client.AccountBalance;
+    cout << "| " << setw(12) << left << Client.AccountBalance;  
 }
 
 // Function to print all clients with headers and formatting
