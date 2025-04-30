@@ -1,7 +1,8 @@
 /*
 Problem 47 |=================================================
 
-Write a program to convert line data fo record and print it:
+Write a program fo ask you to enter clients and save them to
+file:
 
 Adding New Client:
 
