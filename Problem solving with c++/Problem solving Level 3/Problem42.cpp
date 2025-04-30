@@ -5,7 +5,7 @@ Write a program fo replace words in string:
 
 Input : 
 Original String
-EET to Jordan , Jordan is a nice country
+Welcome to Jordan , Jordan is a nice country
 
 Output : 
 String After Replace: 
