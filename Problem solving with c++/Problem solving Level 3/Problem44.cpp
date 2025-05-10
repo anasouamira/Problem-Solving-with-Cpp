@@ -8,6 +8,7 @@ Welcome to Jordan, Jordan is a nice country; it's amazing.
 
 Punctuations Removed:
 Welcome To Jordan Jordan is a nice country its amazing
+
 =============================================================
 */
 #include <string>
