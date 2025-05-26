@@ -1,20 +1,17 @@
 /*
 Problem 01 |=============================================================================================
 
-Write a program fo read a number and
-print the text of that number : 
+Write a program to check if year
+is a leap year or not : 
 
-Input : 
-Enter a Number? 5843 
+Note:
 
-Enter a Number? 8476362741 
-
-
-Output :
-
-Five Thousands Eight Hundreds Forty Three 
-
-Eight billion four hundred seventy six million three hundred sixty two thousand seven hundred forty one.
+All years which are perfectly
+divisible by 4 are leap years
+except for ec (years
+ending with 00), which Sam
+years only if they are perfectly
+divisible i 400.
 ==========================================================================================================
 */
 
