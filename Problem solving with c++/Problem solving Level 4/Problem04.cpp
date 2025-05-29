@@ -12,6 +12,14 @@ Write a program to print Number of:
 * Seconds
 
 in a certain Year.
+
+Output : 
+
+Number of Days in Year [2000] is 366
+Number of Hours in Year [2000] is 8784
+Number of Minutes in Year [2000] is 527040
+Number of Seconds in Year [2000] is 31622400
+
 ==========================================================================================================
 */
 #include <iostream>
