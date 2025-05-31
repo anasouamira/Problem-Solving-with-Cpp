@@ -12,7 +12,13 @@ except for ec (years
 ending with 00), which Sam
 years only if they are perfectly
 divisible i 400.
-==========================================================================================================
+
+Output
+
+Please enter a year to check? 2000
+
+Yes, Year [2000] is a leap year.
+=========================================================================================================
 */
 #include <iostream>
 using namespace std;
