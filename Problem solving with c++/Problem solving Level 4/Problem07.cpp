@@ -4,6 +4,18 @@ Problem 01 |====================================================================
 Write a program fo read a date, and
 print the day name of week.
 
+Output : 
+
+Please enter a year? 2000
+
+Please enter a Month? 3
+
+Please enter a Day? 5
+
+Date :5/3/2000
+Day Order : 0
+Day Name : Sun
+
 ==========================================================================================================
 */
 #include <iostream>
