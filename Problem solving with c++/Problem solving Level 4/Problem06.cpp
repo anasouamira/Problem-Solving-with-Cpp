@@ -38,8 +38,7 @@ int main()
 {
     short Year = ReadYear();
     short Month = ReadMonth();
-    cout << "\nNumber of Days in Month [" << Month << "] is "
-         << NumberOfDaysInAMonth(Month, Year);
+    cout << "\nNumber of Days in Month [" << Month << "] is " << NumberOfDaysInAMonth(Month, Year);
     system("pause>0");
     return 0;
 }
