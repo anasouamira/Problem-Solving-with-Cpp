@@ -12,6 +12,18 @@ Write a program to print Number of:
 + Seconds
 
 in certain Month.
+
+Output : 
+
+
+Please enter a year to check? 2000
+
+Please enter a Month to check? 2
+
+Number of Days in Month [2] is 29
+Number of Hours in Month [2] is 696
+Number of Minutes in Month [2] is 41760
+Number of Seconds in Month [2] is 2505600
 ==========================================================================================================
 */
 #include <iostream>
