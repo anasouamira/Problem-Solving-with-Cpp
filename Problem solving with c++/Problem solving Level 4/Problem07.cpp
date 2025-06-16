@@ -6,15 +6,15 @@ print the day name of week.
 
 Output : 
 
-Please enter a year? 2000
+Please enter a year? 2022
 
-Please enter a Month? 3
+Please enter a Month? 9
 
-Please enter a Day? 5
+Please enter a Day? 1
 
-Date :5/3/2000
-Day Order : 0
-Day Name : Sun
+Date :1/9/2022
+Day Order : 4
+Day Name : Thu
 
 ==========================================================================================================
 */
