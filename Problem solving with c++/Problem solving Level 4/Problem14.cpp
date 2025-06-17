@@ -4,6 +4,20 @@ Problem 01 |====================================================================
 Write a program to read datel, date2 and
 check if Datel Equals to Date2
 
+Enter the first date:
+
+Please enter a Day: 20
+Please enter a Month: 9
+Please enter a Year: 2022
+
+Enter the second date:
+
+Please enter a Day: 23
+Please enter a Month: 9
+Please enter a Year: 2022
+
+No, Date1 is NOT Equal To Date2.
+
 ==========================================================================================================
 */
 
