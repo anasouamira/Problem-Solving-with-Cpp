@@ -5,6 +5,13 @@ Write a program to read a date and check:
 . if it is last Day in Month
 . If it is last Month In Year
 
+Please enter a Day: 31
+Please enter a Month: 12
+Please enter a Year: 2022
+
+Yes, the day is the last day in the month.
+Yes, the month is the last month in the year.
+
 ==========================================================================================================
 */
 #include <iostream>
