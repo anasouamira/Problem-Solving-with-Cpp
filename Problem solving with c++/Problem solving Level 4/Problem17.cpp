@@ -1,9 +1,11 @@
 /*
 Problem 01 |=============================================================================================
 
-Write a program to read date and read
-how many days to add to it, print the
-results on screen
+Write a program to read a Datel, Date2
+and make a function to calculate the
+difference in days.
+
+Note: Date 1 should be less than Date2
 
 ==========================================================================================================
 */
