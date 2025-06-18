@@ -4,7 +4,11 @@ Problem 01 |====================================================================
 Write a program to read a date and make a
 function to increase date by one day.
 
+Please enter a Day: 31
+Please enter a Month: 12
+Please enter a Year: 2022
 
+Date after adding one day is: 1/1/2023
 
 ==========================================================================================================
 */
