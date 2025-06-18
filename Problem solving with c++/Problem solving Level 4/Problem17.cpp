@@ -7,6 +7,21 @@ difference in days.
 
 Note: Date 1 should be less than Date2
 
+Enter the first date:
+
+Please enter a Day: 1
+Please enter a Month: 1
+Please enter a Year: 2022
+
+Enter the second date:
+
+Please enter a Day: 25
+Please enter a Month: 3
+Please enter a Year: 2022
+
+Difference is: 83 day(s).
+Difference (Including End Day) is: 84 day(s).
+
 ==========================================================================================================
 */
 
