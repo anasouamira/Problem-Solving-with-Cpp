@@ -3,6 +3,16 @@ Problem 01 |====================================================================
 
 Werite a program calculate you age in days.
 
+
+Please Enter Your Date of Birth:
+
+Please enter a Day: 13
+Please enter a Month: 6
+Please enter a Year: 2004
+
+Your Age is: 7677 Day(s).
+
+
 ==========================================================================================================
 */
 
