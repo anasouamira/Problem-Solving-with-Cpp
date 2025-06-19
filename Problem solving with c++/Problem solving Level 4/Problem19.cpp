@@ -8,6 +8,21 @@ difference in days.
 Note: if date? is less than datel print the
 results in Minutes
 
+Enter first date:
+
+Please enter a Day: 1
+Please enter a Month: 1
+Please enter a Year: 2000
+
+Enter second date:
+
+Please enter a Day: 1
+Please enter a Month: 1
+Please enter a Year: 2022
+
+Difference is: 8036 Day(s).
+Difference (Including End Day) is: 8037 Day(s).
+
 ==========================================================================================================
 */
 #include <iostream>
