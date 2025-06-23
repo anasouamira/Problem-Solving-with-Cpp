@@ -5,7 +5,6 @@ Write a program to read date and read
 how many days to add to it, print the
 results on screen
 
-
 ==========================================================================================================
 */
 
