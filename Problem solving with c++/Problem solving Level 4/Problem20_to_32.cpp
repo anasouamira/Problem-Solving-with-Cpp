@@ -30,6 +30,27 @@ to increase date as follows:
 
 + IncreaseDateByOneMillennium
 
+Please enter a Day? 31
+Please enter a Month? 12
+Please enter a Year? 2022
+
+Date After:
+
+01-Adding one day is: 1/1/2023
+02-Adding 10 days is: 11/1/2023
+03-Adding one week is: 18/1/2023
+04-Adding 10 weeks is: 29/3/2023
+05-Adding one month is: 29/4/2023
+06-Adding 5 months is: 29/9/2023
+07-Adding one year is: 29/9/2024
+08-Adding 10 Years is: 29/9/2034
+09-Adding 10 Years (faster) is: 29/9/2044
+10-Adding one Decade is: 29/9/2054
+11-Adding 10 Decades is: 29/9/2154
+12-Adding 10 Decades (faster) is: 29/9/2254
+13-Adding One Century is: 29/9/2354
+14-Adding One Millennium is: 29/9/3354
+
 ==========================================================================================================
 */
 #include <iostream>
