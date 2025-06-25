@@ -32,6 +32,27 @@ Decrease date as follows:
 
 + DecreaseDateByOneMillennium
 
+Please enter a Day? 31
+Please enter a Month? 12
+Please enter a Year? 2022
+
+Date After:
+
+01-Subtracting one day is: 30/12/2022
+02-Subtracting 10 days is: 20/12/2022
+03-Subtracting one week is: 13/12/2022
+04-Subtracting 10 weeks is: 4/10/2022
+05-Subtracting one month is: 4/9/2022
+06-Subtracting 5 months is: 4/4/2022
+07-Subtracting one year is: 4/4/2021
+08-Subtracting 10 Years is: 4/4/2011
+09-Subtracting 10 Years (faster) is: 4/4/2001
+10-Subtracting one Decade is: 4/4/1991
+11-Subtracting 10 Decades is: 4/4/1891
+12-Subtracting 10 Decades (faster) is: 4/4/1791
+13-Subtracting One Century is: 4/4/1691
+14-Subtracting One Millennium is: 4/4/691
+
 ==========================================================================================================
 */
 #include <iostream>
