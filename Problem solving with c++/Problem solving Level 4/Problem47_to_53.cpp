@@ -19,9 +19,26 @@ structure
 
 + DaysUntilTheEndOfYear 
 
+Today is Fri , 27/6/2025
+
+Is it End of Week?
+No it's Not end of week.
+
+Is it Weekend?
+Yes it is a week end.
+
+Is it Business Day?
+No it is NOT a business day.
+
+Days until end of week : 1 Day(s).
+Days until end of month : 4 Day(s).
+Days until end of year : 188 Day(s).
+
 ==========================================================================================================
 */
+#pragma warning(disable : 4996)
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 struct stDate {
@@ -34,112 +51,98 @@ bool isLeapYear(short Year) {
     return (Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
 }
 
+bool IsDate1BeforeDate2(stDate Date1, stDate Date2) {
+    return (Date1.Year < Date2.Year) ? true :
+        ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true :
+        (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+}
+
 short NumberOfDaysInAMonth(short Month, short Year) {
     if (Month < 1 || Month > 12) return 0;
     int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
     return (Month == 2) ? (isLeapYear(Year) ? 29 : 28) : days[Month - 1];
 }
 
-stDate DecreaseDateByOneDay(stDate Date) {
-    if (Date.Day == 1) {
-        if (Date.Month == 1) {
-            Date.Month = 12;
-            Date.Day = 31;
-            Date.Year--;
+bool IsLastDayInMonth(stDate Date) {
+    return (Date.Day == NumberOfDaysInAMonth(Date.Month, Date.Year));
+}
+
+bool IsLastMonthInYear(short Month) {
+    return (Month == 12);
+}
+
+stDate IncreaseDateByOneDay(stDate Date) {
+    if (IsLastDayInMonth(Date)) {
+        if (IsLastMonthInYear(Date.Month)) {
+            Date.Month = 1;
+            Date.Day = 1;
+            Date.Year++;
         } else {
-            Date.Month--;
-            Date.Day = NumberOfDaysInAMonth(Date.Month, Date.Year);
+            Date.Day = 1;
+            Date.Month++;
         }
     } else {
-        Date.Day--;
+        Date.Day++;
     }
     return Date;
 }
 
-stDate DecreaseDateByOneWeek(stDate Date) {
-    for (int i = 1; i <= 7; i++) {
-        Date = DecreaseDateByOneDay(Date);
+int GetDifferenceInDays(stDate Date1, stDate Date2, bool IncludeEndDay = false) {
+    int Days = 0;
+    while (IsDate1BeforeDate2(Date1, Date2)) {
+        Days++;
+        Date1 = IncreaseDateByOneDay(Date1);
     }
-    return Date;
+    return IncludeEndDay ? ++Days : Days;
 }
 
-stDate DecreaseDateByXWeeks(short Weeks, stDate Date) {
-    for (short i = 1; i <= Weeks; i++) {
-        Date = DecreaseDateByOneWeek(Date);
-    }
-    return Date;
+short DayOfWeekOrder(short Day, short Month, short Year) {
+    short a = (14 - Month) / 12;
+    short y = Year - a;
+    short m = Month + (12 * a) - 2;
+    return (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
 }
 
-stDate DecreaseDateByOneMonth(stDate Date) {
-    if (Date.Month == 1) {
-        Date.Month = 12;
-        Date.Year--;
-    } else {
-        Date.Month--;
-    }
-    short NumberOfDaysInCurrentMonth = NumberOfDaysInAMonth(Date.Month, Date.Year);
-    if (Date.Day > NumberOfDaysInCurrentMonth) {
-        Date.Day = NumberOfDaysInCurrentMonth;
-    }
-    return Date;
+short DayOfWeekOrder(stDate Date) {
+    return DayOfWeekOrder(Date.Day, Date.Month, Date.Year);
 }
 
-stDate DecreaseDateByXDays(short Days, stDate Date) {
-    for (short i = 1; i <= Days; i++) {
-        Date = DecreaseDateByOneDay(Date);
-    }
-    return Date;
+string DayShortName(short DayOfWeekOrder) {
+    string arrDayNames[] = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+    return arrDayNames[DayOfWeekOrder];
 }
 
-stDate DecreaseDateByXMonths(short Months, stDate Date) {
-    for (short i = 1; i <= Months; i++) {
-        Date = DecreaseDateByOneMonth(Date);
-    }
-    return Date;
+short IsEndOfWeek(stDate Date) {
+    return DayOfWeekOrder(Date) == 6;
 }
 
-stDate DecreaseDateByOneYear(stDate Date) {
-    Date.Year--;
-    return Date;
+bool IsWeekEnd(stDate Date) {
+    short DayIndex = DayOfWeekOrder(Date);
+    return (DayIndex == 5 || DayIndex == 6);
 }
 
-stDate DecreaseDateByXYears(short Years, stDate Date) {
-    for (short i = 1; i <= Years; i++) {
-        Date = DecreaseDateByOneYear(Date);
-    }
-    return Date;
+bool IsBusinessDay(stDate Date) {
+    return !IsWeekEnd(Date);
 }
 
-stDate DecreaseDateByXYearsFaster(short Years, stDate Date) {
-    Date.Year -= Years;
-    return Date;
+short DaysUntilTheEndOfWeek(stDate Date) {
+    return 6 - DayOfWeekOrder(Date);
 }
 
-stDate DecreaseDateByOneDecade(stDate Date) {
-    Date.Year -= 10;
-    return Date;
+short DaysUntilTheEndOfMonth(stDate Date1) {
+    stDate EndOfMonthDate;
+    EndOfMonthDate.Day = NumberOfDaysInAMonth(Date1.Month, Date1.Year);
+    EndOfMonthDate.Month = Date1.Month;
+    EndOfMonthDate.Year = Date1.Year;
+    return GetDifferenceInDays(Date1, EndOfMonthDate, true);
 }
 
-stDate DecreaseDateByXDecades(short Decade, stDate Date) {
-    for (short i = 1; i <= Decade * 10; i++) {
-        Date = DecreaseDateByOneYear(Date);
-    }
-    return Date;
-}
-
-stDate DecreaseDateByXDecadesFaster(short Decade, stDate Date) {
-    Date.Year -= Decade * 10;
-    return Date;
-}
-
-stDate DecreaseDateByOneCentury(stDate Date) {
-    Date.Year -= 100;
-    return Date;
-}
-
-stDate DecreaseDateByOneMillennium(stDate Date) {
-    Date.Year -= 1000;
-    return Date;
+short DaysUntilTheEndOfYear(stDate Date1) {
+    stDate EndOfYearDate;
+    EndOfYearDate.Day = 31;
+    EndOfYearDate.Month = 12;
+    EndOfYearDate.Year = Date1.Year;
+    return GetDifferenceInDays(Date1, EndOfYearDate, true);
 }
 
 short ReadDay() {
@@ -171,53 +174,44 @@ stDate ReadFullDate() {
     return Date;
 }
 
+stDate GetSystemDate() {
+    stDate Date;
+    time_t t = time(0);
+    tm* now = localtime(&t);
+    Date.Year = now->tm_year + 1900;
+    Date.Month = now->tm_mon + 1;
+    Date.Day = now->tm_mday;
+    return Date;
+}
+
 int main() {
-    stDate Date1 = ReadFullDate();
-    cout << "\nDate After: \n";
+    stDate Date1 = GetSystemDate();
 
-    Date1 = DecreaseDateByOneDay(Date1);
-    cout << "\n01-Subtracting one day is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
+    cout << "\nToday is " << DayShortName(DayOfWeekOrder(Date1)) << " , "
+         << Date1.Day << "/" << Date1.Month << "/" << Date1.Year << endl;
 
-    Date1 = DecreaseDateByXDays(10, Date1);
-    cout << "\n02-Subtracting 10 days is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
+    cout << "\nIs it End of Week?\n";
+    if (IsEndOfWeek(Date1))
+        cout << "Yes it is Saturday, it's End of Week.";
+    else
+        cout << "No it's Not end of week.";
 
-    Date1 = DecreaseDateByOneWeek(Date1);
-    cout << "\n03-Subtracting one week is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
+    cout << "\n\nIs it Weekend?\n";
+    if (IsWeekEnd(Date1))
+        cout << "Yes it is a week end.";
+    else
+        cout << "No today is " << DayShortName(DayOfWeekOrder(Date1)) << ", Not a weekend.";
 
-    Date1 = DecreaseDateByXWeeks(10, Date1);
-    cout << "\n04-Subtracting 10 weeks is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
+    cout << "\n\nIs it Business Day?\n";
+    if (IsBusinessDay(Date1))
+        cout << "Yes it is a business day.";
+    else
+        cout << "No it is NOT a business day.";
 
-    Date1 = DecreaseDateByOneMonth(Date1);
-    cout << "\n05-Subtracting one month is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByXMonths(5, Date1);
-    cout << "\n06-Subtracting 5 months is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByOneYear(Date1);
-    cout << "\n07-Subtracting one year is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByXYears(10, Date1);
-    cout << "\n08-Subtracting 10 Years is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByXYearsFaster(10, Date1);
-    cout << "\n09-Subtracting 10 Years (faster) is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByOneDecade(Date1);
-    cout << "\n10-Subtracting one Decade is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByXDecades(10, Date1);
-    cout << "\n11-Subtracting 10 Decades is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByXDecadesFaster(10, Date1);
-    cout << "\n12-Subtracting 10 Decades (faster) is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByOneCentury(Date1);
-    cout << "\n13-Subtracting One Century is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
-
-    Date1 = DecreaseDateByOneMillennium(Date1);
-    cout << "\n14-Subtracting One Millennium is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
+    cout << "\n\nDays until end of week : " << DaysUntilTheEndOfWeek(Date1) << " Day(s).";
+    cout << "\nDays until end of month : " << DaysUntilTheEndOfMonth(Date1) << " Day(s).";
+    cout << "\nDays until end of year : " << DaysUntilTheEndOfYear(Date1) << " Day(s).";
 
     system("pause>0");
     return 0;
 }
-
