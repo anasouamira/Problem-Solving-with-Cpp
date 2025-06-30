@@ -15,7 +15,6 @@ Please enter a Month? 1
 Please enter a Year? 2000
 
 Yes, Date1 is After Date2.
-
 ==========================================================================================================
 */
 #include <iostream>
