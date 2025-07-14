@@ -1,8 +1,8 @@
 /*
 Problem 54 |=============================================================================================
 
-Write a Piraan fo read Datel & Date2,
-and check if Datel is after Date2 or not.
+Write a program to read Date1 & Date2,
+and check if Date1 is after Date2 or not.
 
 Enter Date1:
 Please enter a Day? 1

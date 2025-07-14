@@ -1,7 +1,7 @@
 /*
 Problem 54 |=============================================================================================
 
-Write a program fo read a Period and
+Write a program to read a Period and
 Date, then check if date is within this
 period or not?
 

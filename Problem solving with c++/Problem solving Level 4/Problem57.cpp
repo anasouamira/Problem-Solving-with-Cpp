@@ -1,7 +1,7 @@
 /*
 Problem 54 |=============================================================================================
 
-Write a program to read Datel & Date2,
+Write a program to read Date1 & Date2,
 and write a function to compare dates, it
 should return: 
 
