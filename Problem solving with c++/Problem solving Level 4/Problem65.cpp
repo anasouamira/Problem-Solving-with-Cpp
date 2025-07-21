@@ -8,7 +8,6 @@ Please Enter Date (dd/mm/yyyy): 13/06/2002
 
 Default format: 13/6/2002
 
-
 Year first:     2002/13/6
 
 US format:      6/13/2002
