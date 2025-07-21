@@ -1,7 +1,7 @@
 /*
 Problem 54 |=============================================================================================
 
-Write a program fo :
+Write a program to :
 
 + Read Date String.
 
