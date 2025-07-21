@@ -30,7 +30,7 @@ Please enter a Day: 30
 Please enter a Month: 12
 Please enter a Year: 2050
 
-Overlap Days Count is: 6
+Overlap Days Count is: 5
 
 ==========================================================================================================
 */
