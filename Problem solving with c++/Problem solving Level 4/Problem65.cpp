@@ -4,7 +4,6 @@ Problem 65 |====================================================================
 Write a Program fo read Date and write a
 function to format that date.
 
-
 Please Enter Date (dd/mm/yyyy): 13/06/2002
 
 Default format: 13/6/2002
