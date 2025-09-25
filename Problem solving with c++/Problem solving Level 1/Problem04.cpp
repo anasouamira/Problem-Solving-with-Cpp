@@ -1,44 +1,30 @@
+
 #include <iostream>
-#include <string>
 using namespace std;
-struct strInfo{
-	 
-	int Age;
-	bool hasDriver_Licence,hasRecommendation;
-
+struct strNubs{
+    int Number, M;
 };
-strInfo RedInfo(){
-	strInfo persone;
-	cout << "*****************************************" << endl;
-	cout << "Enter your Age : ";
-	cin >> persone.Age;
-	cout << "Do you have Driver Licence, Enter number (  yes = 1 / no = 0 ) : ";
-	cin >> persone.hasDriver_Licence;
-	cout << "Do you have Recommendation, Enter number (  yes = 1 / no = 0 ) : ";
-	cin >> persone.hasRecommendation;
 
-	return persone;
+strNubs RedNumbers() {
+    strNubs Nub;
+    cout << "Donner un Nomber : ";
+    cin >> Nub.Number;
+    cout << "Donner le Nomber de multipliquation : ";
+    cin >> Nub.M;
+    return Nub;
 }
-bool isAccepted(strInfo persone){
-	return (persone.Age >= 21 || persone.hasDriver_Licence) && !(persone.hasRecommendation);
+void Power(strNubs Nub) {
+    int multi = 1;
+    for (int i = 1; i <= Nub.M; i++){
+        multi = multi * Nub.Number;
+    }
+    cout << "power of " << Nub.Number << "^" << Nub.M << " is : " << multi << endl;
 }
-void PrintInfo(strInfo persone) {
 
-	while (isAccepted(persone)){
-		cout << "your are rejected" << endl;
-		cout << "*****************************************" << endl;
-		cout << "enter again" << endl;
-		RedInfo();
-	}
-	cout << "*****************************************" << endl;
-	cout << "you are hired" << endl;
-}
+
 
 int main()
 {
-	PrintInfo(RedInfo());
+    Power(RedNumbers());
 }
-	
-	
-
 

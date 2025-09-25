@@ -38,7 +38,7 @@ int main()
 {
 	strMoney Money;
 	cout << "Total Of Peney : " << TotalPenny(RedMoney(Money)) << endl;
-	cout << "Total Of Dolar : " << TotaDolars(TotalPenny()) << endl;
+	cout << "Total Of Dolar : " << TotaDolars(Money) << endl;
 
 }
 
