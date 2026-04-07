@@ -1,36 +1,59 @@
+/*
+
+Description:
+Write a program to determine whether a person can be hired as a driver based on:
+    -Age must be greater than 21
+    -Has a driving license
+
+Example:
+
+Input:
+Age = 25
+HasLicense = 1
+
+Output:
+Hired
+
+*/
 #include <iostream>
 using namespace std;
 
-// 🔹 Question / Task:
-// Write a program that reads an integer number and another number representing the power.
-// Then calculate and print the result of raising the first number to the given power using a loop.
+// Function to read user information
+void ReadInfo(int &Age, bool &HasLicense) {
+    cout << "Enter your age: ";
+    cin >> Age;
 
-struct strNubs {
-    int Number;  // The base number
-    int M;       // The power
-};
-
-// Function to read the number and the power from the user
-strNubs RedNumbers() {
-    strNubs Nub;
-    cout << "Enter a number: ";
-    cin >> Nub.Number;
-    cout << "Enter the power: ";
-    cin >> Nub.M;
-    return Nub;  // Return the structure with both values
+    cout << "Do you have a driving license? (1 = Yes, 0 = No): ";
+    cin >> HasLicense;
 }
 
-// Function to calculate and print the power
-void Power(strNubs Nub) {
-    int multi = 1; // Variable to store the result of the power
-    // Multiply Nub.Number by itself Nub.M times
-    for (int i = 1; i <= Nub.M; i++) {
-        multi = multi * Nub.Number;
-    }
-    cout << "Power of " << Nub.Number << "^" << Nub.M << " is: " << multi << endl;
+// Function to check hiring condition
+bool IsHired(int Age, bool HasLicense) {
+
+    // Must be older than 21 AND have a license
+    if (Age > 21 && HasLicense)
+        return true;
+
+    return false;
+}
+
+// Function to print result
+void PrintResult(bool Result) {
+
+    if (Result)
+        cout << "Hired" << endl;
+    else
+        cout << "Rejected" << endl;
 }
 
 int main() {
-    // Read number and power, then calculate and print the result
-    Power(RedNumbers());
+
+    int Age;
+    bool HasLicense;
+
+    ReadInfo(Age, HasLicense);
+
+    PrintResult(IsHired(Age, HasLicense));
+
+    return 0;
 }

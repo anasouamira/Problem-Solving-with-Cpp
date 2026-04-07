@@ -1,58 +1,59 @@
+/*
+
+Description:
+Modify the previous problem:
+
+    -The person can be hired if:
+    -Age > 21 AND has license
+    -OR Age > 25 (even without license)
+
+Example:
+
+Input:
+Age = 26
+HasLicense = 0
+
+Output:
+Hired
+
+*/
 #include <iostream>
 using namespace std;
 
-// 🔹 Question / Task:
-// Write a program that reads the number of coins a person has:
-// Pennies, Nickels, Dimes, Quarters, and Dollars.
-// Then calculate and print the total value in pennies and in dollars.
+void ReadInfo(int &Age, bool &HasLicense) {
+    cout << "Enter your age: ";
+    cin >> Age;
 
-struct strMoney {
-    int Penny;    // Number of pennies
-    int Nickel;   // Number of nickels (5 cents each)
-    int Dime;     // Number of dimes (10 cents each)
-    int Quater;   // Number of quarters (25 cents each)
-    int Dolar;    // Number of dollars (100 cents each)
-};
-
-// Function to read the amount of each coin
-strMoney RedMoney(strMoney& Money) {
-    cout << "Enter number of Pennies: ";
-    cin >> Money.Penny;
-
-    cout << "Enter number of Nickels: ";
-    cin >> Money.Nickel;
-
-    cout << "Enter number of Dimes: ";
-    cin >> Money.Dime;
-
-    cout << "Enter number of Quarters: ";
-    cin >> Money.Quater;
-
-    cout << "Enter number of Dollars: ";
-    cin >> Money.Dolar;
-
-    return Money;
+    cout << "Do you have a driving license? (1 = Yes, 0 = No): ";
+    cin >> HasLicense;
 }
 
-// Function to calculate total value in pennies
-int TotalPenny(strMoney Money) { 
-    return Money.Penny + (Money.Nickel * 5) + (Money.Dime * 10) + (Money.Quater * 25) + (Money.Dolar * 100);
+bool IsHired(int Age, bool HasLicense) {
+
+    // Condition 1: Age > 21 AND has license
+    // Condition 2: Age > 25 (no need for license)
+    if ((Age > 21 && HasLicense) || (Age > 25))
+        return true;
+
+    return false;
 }
 
-// Function to calculate total value in dollars
-int TotalDollars(strMoney Money) {
-    return TotalPenny(Money) / 100;
+void PrintResult(bool Result) {
+
+    if (Result)
+        cout << "Hired" << endl;
+    else
+        cout << "Rejected" << endl;
 }
 
 int main() {
-    strMoney Money;
 
-    // Read coin amounts from user
-    RedMoney(Money);
+    int Age;
+    bool HasLicense;
 
-    // Print total in pennies
-    cout << "Total in Pennies: " << TotalPenny(Money) << endl;
+    ReadInfo(Age, HasLicense);
 
-    // Print total in dollars
-    cout << "Total in Dollars: " << TotalDollars(Money) << endl;
+    PrintResult(IsHired(Age, HasLicense));
+
+    return 0;
 }
